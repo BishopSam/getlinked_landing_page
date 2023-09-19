@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:getlinked_landing_page/core/constants/colors.dart';
 import 'package:getlinked_landing_page/presentation/pages/landing_page.dart';
 
 void main() {
@@ -11,14 +13,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Getlinked Landing',
-      theme: ThemeData(
-    
-        primarySwatch: Colors.blue,
-      ),
-      home: const LandingPage(),
-    );
+    return ScreenUtilInit(builder: (context, child) {
+      return MaterialApp(
+        title: 'Getlinked Landing',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: AppColors.primaryColor,
+        ),
+        home: const LandingPage(),
+      );
+    });
   }
 }
-

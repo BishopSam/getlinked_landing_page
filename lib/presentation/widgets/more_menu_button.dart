@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:getlinked_landing_page/core/constants/colors.dart';
+import 'package:getlinked_landing_page/core/constants/sizes.dart';
+import 'package:getlinked_landing_page/core/ui_util/assets.dart';
+import 'package:getlinked_landing_page/core/ui_util/fonts.dart';
+import 'package:getlinked_landing_page/presentation/widgets/app_buttons.dart';
+import 'package:getlinked_landing_page/presentation/widgets/svg_asset_widget.dart';
 
-enum PopupMenuOption { time, overview, contact, register }
+enum PopupMenuOption { time, overview, faqs, contact, register }
 
 class MoreMenuButton extends StatelessWidget {
   const MoreMenuButton({
@@ -17,46 +23,99 @@ class MoreMenuButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PopupMenuButton(
-      // three vertical dots icon (to reveal menu options)
-      icon: const Icon(Icons.more_vert),
-      itemBuilder: (_) {
-        // show all the options based on conditional logic
-        return const <PopupMenuEntry<PopupMenuOption>>[
-          PopupMenuItem(
-            value: PopupMenuOption.time,
-            child: Text('Time'),
-          ),
-          PopupMenuItem(
-            value: PopupMenuOption.overview,
-            child: Text('Overview'),
-          ),
-          PopupMenuItem(
-            value: PopupMenuOption.contact,
-            child: Text('Contact'),
-          ),
-          PopupMenuItem(
-            value: PopupMenuOption.register,
-            child: Text('Register'),
-          ),
-        ];
-      },
-      onSelected: (option) {
-        // push to different routes based on selected option
-        switch (option) {
-          case PopupMenuOption.time:
-            onTimePressed;
-            break;
-          case PopupMenuOption.overview:
-            onOverviewPressed;
-            break;
-          case PopupMenuOption.contact:
-            onContactPressed;
-            break;
-          case PopupMenuOption.register:
-            onRegisterPressed;
-        }
-      },
+    return Theme(
+      data: ThemeData(iconTheme: const IconThemeData(color: AppColors.white)),
+      child: PopupMenuButton(
+        // three vertical dots icon (to reveal menu options)
+        icon: const SvgAssetWidget(svgUrl: SvgAsset.moreIcon),
+        color: AppColors.primaryColor,
+
+        itemBuilder: (_) {
+          // show all the options based on conditional logic
+          return <PopupMenuEntry<PopupMenuOption>>[
+            PopupMenuItem(
+              value: PopupMenuOption.time,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: Sizes.p8, horizontal: Sizes.p12),
+                child: Text(
+                  'Time',
+                  style: AppTextStyles.textStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ),
+            PopupMenuItem(
+              value: PopupMenuOption.overview,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: Sizes.p8, horizontal: Sizes.p12),
+                child: Text(
+                  'Overview',
+                  style: AppTextStyles.textStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ),
+            PopupMenuItem(
+              value: PopupMenuOption.overview,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: Sizes.p8, horizontal: Sizes.p12),
+                child: Text(
+                  'FAQs',
+                  style: AppTextStyles.textStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ),
+            PopupMenuItem(
+              value: PopupMenuOption.contact,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: Sizes.p8, horizontal: Sizes.p12),
+                child: Text(
+                  'Contact',
+                  style: AppTextStyles.textStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ),
+            PopupMenuItem(
+              value: PopupMenuOption.register,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: Sizes.p8, horizontal: Sizes.p12),
+                child: ButtonWidget(onTap: () {}, text: "Register"),
+              ),
+            ),
+          ];
+        },
+        onSelected: (option) {
+          // push to different routes based on selected option
+          switch (option) {
+            case PopupMenuOption.time:
+              onTimePressed;
+              break;
+            case PopupMenuOption.overview:
+              onOverviewPressed;
+              break;
+            case PopupMenuOption.faqs:
+              {}
+              break;
+            case PopupMenuOption.contact:
+              onContactPressed;
+              break;
+
+            case PopupMenuOption.register:
+              null;
+          }
+        },
+      ),
     );
   }
 }

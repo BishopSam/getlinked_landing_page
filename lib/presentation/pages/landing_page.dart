@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:getlinked_landing_page/core/constants/breakpoints.dart';
-import 'package:getlinked_landing_page/core/ui_util/responsive_center.dart';
+import 'package:getlinked_landing_page/core/constants/colors.dart';
 import 'package:getlinked_landing_page/presentation/widgets/home_app_bar.dart';
+import 'package:getlinked_landing_page/presentation/widgets/time/time_widget.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -11,16 +11,22 @@ class LandingPage extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-        appBar: const HomeAppBar(),
-        body: (screenWidth >= Breakpoint.tablet)
-            ? ResponsiveCenter(
-                child: Row(
-                  children: [
-                    Flexible(flex: 5, child: Container(color: Colors.red)),
-                    Flexible(flex: 2, child: Container(color: Colors.yellow))
-                  ],
-                ),
-              )
-            : Container());
+        extendBodyBehindAppBar: true,
+        body: NestedScrollView(
+            headerSliverBuilder: (context, innerBoxIsScrolled) => [
+                  HomeAppBar(
+                    onTimePressed: () {},
+                    onOverviewPressed: () {},
+                    onContactPressed: () {},
+                    onRegisterPressed: () {},
+                  ),
+                ],
+            body: SingleChildScrollView(
+              child: Column(
+                children: const [
+                  TimeWidget(),
+                ],
+              ),
+            )));
   }
 }
