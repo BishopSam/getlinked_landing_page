@@ -10,9 +10,13 @@ class PngAsset {
   static const chain = 'assets/images/chain-9365116-7621444.png';
   static const kapow = 'assets/images/1f4a5.png';
   static const metrix = 'assets/images/metrix 1.png';
+  static const bigIdea = 'assets/images/bigidea.png';
+  static const arrow = 'assets/images/arrow.png';
+  static const star4 ='assets/images/star pu.png';
+  static const star5 = 'assets/images/sata gra.png';
   }
 
 class SvgAsset {
-  static const moreIcon = 'assets/images/Vector (3).svg';
+  static const moreIcon = 'assets/icons/Vector (3).svg';
   static const curvedLine = 'assets/icons/Vector 4.svg';
 }

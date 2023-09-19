@@ -15,11 +15,13 @@ class MoreMenuButton extends StatelessWidget {
     required this.onOverviewPressed,
     required this.onContactPressed,
     required this.onRegisterPressed,
+    required this.onFAQsPressed,
   });
   final VoidCallback onTimePressed;
   final VoidCallback onOverviewPressed;
   final VoidCallback onContactPressed;
   final VoidCallback onRegisterPressed;
+  final VoidCallback onFAQsPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -99,20 +101,21 @@ class MoreMenuButton extends StatelessWidget {
           // push to different routes based on selected option
           switch (option) {
             case PopupMenuOption.time:
-              onTimePressed;
+              onTimePressed.call();
               break;
             case PopupMenuOption.overview:
-              onOverviewPressed;
+              onOverviewPressed.call();
               break;
             case PopupMenuOption.faqs:
-              {}
+              onFAQsPressed.call();
               break;
             case PopupMenuOption.contact:
-              onContactPressed;
+              onContactPressed.call();
               break;
 
             case PopupMenuOption.register:
               null;
+              break;
           }
         },
       ),

@@ -19,16 +19,19 @@ class ManWithGlassWorldWidget extends StatelessWidget {
           ),
         ),
         Column(
+         
           mainAxisSize: MainAxisSize.min,
           children: [
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding: const EdgeInsets.only(right: Sizes.p64),
-                child: Image.asset(
-                  PngAsset.manWithGlasses,
-                  fit: BoxFit.fill,
-                  height: screenHeight(context, percent: 70),
+            Flexible(
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: Sizes.p64),
+                  child: Image.asset(
+                    PngAsset.manWithGlasses,
+                    fit: BoxFit.fill,
+                    height: screenHeight(context, percent: 70),
+                  ),
                 ),
               ),
             ),

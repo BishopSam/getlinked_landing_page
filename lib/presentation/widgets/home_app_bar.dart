@@ -14,9 +14,11 @@ class HomeAppBar extends StatelessWidget {
       required this.onTimePressed,
       required this.onOverviewPressed,
       required this.onContactPressed,
+      required this.onFAQsPressed,
       required this.onRegisterPressed});
   final VoidCallback onTimePressed;
   final VoidCallback onOverviewPressed;
+    final VoidCallback onFAQsPressed;
   final VoidCallback onContactPressed;
   final VoidCallback onRegisterPressed;
 
@@ -76,6 +78,7 @@ class HomeAppBar extends StatelessWidget {
             onOverviewPressed: onOverviewPressed,
             onRegisterPressed: onRegisterPressed,
             onTimePressed: onTimePressed,
+            onFAQsPressed: onFAQsPressed,
           ),
         ],
       );
@@ -122,14 +125,14 @@ class HomeAppBar extends StatelessWidget {
         actions: [
           CustomTextButton(onTap: onTimePressed, text: "Time"),
           gapW16,
-          CustomTextButton(onTap: onTimePressed, text: "Overview"),
+          CustomTextButton(onTap: onOverviewPressed, text: "Overview"),
           gapW16,
-          CustomTextButton(onTap: onTimePressed, text: "FAQs"),
+          CustomTextButton(onTap: onFAQsPressed, text: "FAQs"),
           gapW16,
-          CustomTextButton(onTap: onTimePressed, text: "Contact"),
+          CustomTextButton(onTap: onContactPressed, text: "Contact"),
           gapW16,
           Padding(
-            padding: const EdgeInsets.all(Sizes.p8),
+            padding: const EdgeInsets.all(Sizes.p16),
             child: ButtonWidget(
               onTap: onRegisterPressed,
               text: "Register",

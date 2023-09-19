@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:getlinked_landing_page/core/core.dart';
 import 'package:getlinked_landing_page/presentation/widgets/app_buttons.dart';
 
-
 class GetlinkedTextSection extends StatelessWidget {
   const GetlinkedTextSection({
     Key? key,
@@ -29,25 +28,36 @@ class GetlinkedTextSection extends StatelessWidget {
             Text(
               "getlinked Tech",
               style: AppTextStyles.textStyle(
-                  fontSize: 80.spMin, fontWeight: FontWeight.w800),
+                  fontSize: screenWidth(context) >= Breakpoint.tablet &&
+                          screenWidth(context) < 1100
+                      ? 60.spMin
+                      : 80.spMin,
+                  fontWeight: FontWeight.w800),
             ),
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Flexible(
-                  flex: 3,
+                  flex: 4,
                   child: RichText(
                     text: TextSpan(
-                      text: "Hackathon ",
+                      text: "Hackathon",
                       style: AppTextStyles.textStyle(
-                        fontSize: 80.spMin,
+                        fontSize: screenWidth(context) >= Breakpoint.tablet &&
+                                screenWidth(context) < 1100
+                            ? 60.spMin
+                            : 80.spMin,
                         fontWeight: FontWeight.w800,
                       ),
                       children: [
                         TextSpan(
                             text: "1.0",
                             style: AppTextStyles.textStyle(
-                                fontSize: 90.spMin,
+                                fontSize: screenWidth(context) >=
+                                            Breakpoint.desktop &&
+                                        screenWidth(context) < 1100
+                                    ? 60.spMin
+                                    : 80.spMin,
                                 fontWeight: FontWeight.w800,
                                 color: AppColors.accentColor))
                       ],
