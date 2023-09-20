@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:getlinked_landing_page/presentation/widgets/get_box_offset.dart';
+import 'package:getlinked_landing_page/core/core.dart';
 import 'package:getlinked_landing_page/presentation/widgets/home_app_bar.dart';
 import 'package:getlinked_landing_page/presentation/widgets/overview/overview_widget.dart';
+import 'package:getlinked_landing_page/presentation/widgets/purple_flares.dart';
+import 'package:getlinked_landing_page/presentation/widgets/rules_and_guidelines/rules_and_guidelines_widget.dart';
 import 'package:getlinked_landing_page/presentation/widgets/time/time_widget.dart';
+import 'package:scroll_to_index/scroll_to_index.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -12,75 +15,83 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  final ScrollController nestedController = ScrollController();
+  final AutoScrollController nestedController = AutoScrollController();
   final timeWidgetKey = GlobalKey();
   final overviewWidgetKey = GlobalKey();
-  List<double> item = [];
 
-  @override
-  void initState() {
-    item = List.generate(10, (index) => index.toDouble());
-    super.initState();
-  }
+  final widgetList = [
+    const TimeWidget(),
+    const OverviewandRulesWidget(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         extendBodyBehindAppBar: true,
-        body: NestedScrollView(
-            controller: nestedController,
-            headerSliverBuilder: (context, innerBoxIsScrolled) {
-              return [
-                HomeAppBar(
-                  onTimePressed: scrolltoTimeWidget,
-                  onFAQsPressed: () {},
-                  onOverviewPressed: () =>
-                      scrollToWidget(innerBoxIsScrolled, overviewWidgetKey),
-                  onContactPressed: () {},
-                  onRegisterPressed: () {},
-                ),
-              ];
-            },
-            body: SingleChildScrollView(
-              child: Column(
-                children: [
-                  GetBoxOffset(
-                    key: timeWidgetKey,
-                    offset: (offset) {
-                      item[0] = offset.dy;
-                    },
-                    child: const TimeWidget(),
-                  ),
-                  GetBoxOffset(
-                    key: overviewWidgetKey,
-                    offset: (offset) {
-                      item[1] = offset.dy;
-                    },
-                    child: const OverviewWidget(),
-                  ),
-                ],
-              ),
-            )));
+        extendBody: true,
+        appBar: HomeAppBar(
+          onTimePressed: () => scrollToWidget(0),
+          onFAQsPressed: () {},
+          onOverviewPressed: () => scrollToWidget(1),
+          onContactPressed: () {},
+          onRegisterPressed: () {},
+        ),
+        body: SingleChildScrollView(
+          controller: nestedController,
+          child: Column(
+            children: [
+              const Gap(50),
+              for (int i = 0; i < widgetList.length; i++) ...[
+                AutoScrollTag(
+                    key: ValueKey(i),
+                    controller: nestedController,
+                    index: i,
+                    child: widgetList[i])
+              ]
+            ],
+          ),
+        ));
   }
 
-  Future<void> scrolltoTimeWidget() {
-    return Scrollable.ensureVisible(timeWidgetKey.currentContext!,
-        duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+  void scrollToWidget(int i) {
+    nestedController.scrollToIndex(i,
+        duration: const Duration(milliseconds: 300),
+        preferPosition:
+            i > 0 ? AutoScrollPosition.begin : AutoScrollPosition.middle);
   }
+}
 
-  void scrollToWidget(bool innerBoxIsScrolled, GlobalKey key) {
-    if (key.currentContext != null) {
-      if (innerBoxIsScrolled) {
-        Scrollable.ensureVisible(key.currentContext!,
-            duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
-      } else {
-        /// scroll twice since innerbox hasnt been scrolled yet
-        Scrollable.ensureVisible(key.currentContext!,
-                duration: const Duration(microseconds: 1), curve: Curves.easeIn)
-            .then((value) => Scrollable.ensureVisible(key.currentContext!,
-                duration: const Duration(milliseconds: 200),
-                curve: Curves.easeIn));
-      }
-    }
+class OverviewandRulesWidget extends StatelessWidget {
+  const OverviewandRulesWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Positioned(
+            top: screenHeight(context,
+                percent: screenWidth(context) >= Breakpoint.tablet &&
+                        screenWidth(context) < 1100
+                    ? 50
+                    : 90),
+            child: const BigPurpleFlare()),
+        Positioned(
+            top: screenHeight(context,
+                percent: screenWidth(context) >= Breakpoint.tablet &&
+                        screenWidth(context) < 1100
+                    ? 90
+                    : 130),
+            left: screenWidth(context, percent: 75),
+            child: const BigPurpleFlare()),
+        Column(
+          children: const [
+            OverviewWidget(),
+            RulesandGuidelines(),
+          ],
+        ),
+      ],
+    );
   }
 }

@@ -9,7 +9,7 @@ class OverviewWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     if (screenWidth >= Breakpoint.tablet) {
-      return const OverviewLargeScreen();
+      return OverviewLargeScreen(screenwidth: screenWidth);
     }
     return Container();
   }

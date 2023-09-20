@@ -8,7 +8,7 @@ import 'package:getlinked_landing_page/core/ui_util/fonts.dart';
 import 'package:getlinked_landing_page/presentation/widgets/app_buttons.dart';
 import 'package:getlinked_landing_page/presentation/widgets/more_menu_button.dart';
 
-class HomeAppBar extends StatelessWidget {
+class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   const HomeAppBar(
       {super.key,
       required this.onTimePressed,
@@ -18,7 +18,7 @@ class HomeAppBar extends StatelessWidget {
       required this.onRegisterPressed});
   final VoidCallback onTimePressed;
   final VoidCallback onOverviewPressed;
-    final VoidCallback onFAQsPressed;
+  final VoidCallback onFAQsPressed;
   final VoidCallback onContactPressed;
   final VoidCallback onRegisterPressed;
 
@@ -34,11 +34,7 @@ class HomeAppBar extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     if (screenWidth < Breakpoint.desktop) {
-      return SliverAppBar(
-        pinned: false,
-        snap: true,
-        floating: true,
-        toolbarHeight: 80,
+      return AppBar(
         flexibleSpace: ClipRRect(
             child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
@@ -83,12 +79,9 @@ class HomeAppBar extends StatelessWidget {
         ],
       );
     } else {
-      return SliverAppBar(
+      return AppBar(
         backgroundColor: Colors.transparent,
-        pinned: false,
         toolbarHeight: 80,
-        snap: true,
-        floating: true,
         flexibleSpace: ClipRRect(
             child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
@@ -144,4 +137,8 @@ class HomeAppBar extends StatelessWidget {
       );
     }
   }
+
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => const Size.fromHeight(80);
 }

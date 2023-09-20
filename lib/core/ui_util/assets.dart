@@ -14,6 +14,7 @@ class PngAsset {
   static const arrow = 'assets/images/arrow.png';
   static const star4 ='assets/images/star pu.png';
   static const star5 = 'assets/images/sata gra.png';
+  static const rulesAndGuidelines = 'assets/images/rules.png';
   }
 
 class SvgAsset {

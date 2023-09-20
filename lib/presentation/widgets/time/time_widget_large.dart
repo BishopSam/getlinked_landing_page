@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getlinked_landing_page/core/core.dart';
+import 'package:getlinked_landing_page/presentation/widgets/purple_flares.dart';
 import 'package:getlinked_landing_page/presentation/widgets/svg_asset_widget.dart';
 import 'package:getlinked_landing_page/presentation/widgets/time/get_linked_text.dart';
 import 'package:getlinked_landing_page/presentation/widgets/time/man_with_glasses.dart';
@@ -18,60 +19,21 @@ class TimeWidgetLargeScreen extends StatelessWidget {
     return ResponsiveCenter(
         maxContentWidth: screenWidth,
         child: Stack(
+          alignment: Alignment.bottomCenter,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                right: Sizes.p32,
-              ),
-              child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Column(
-                    children: [
-                      const Gap(50),
-                      Container(
-                        width: screenWidth * 0.5,
-                        height: screenHeight(context, percent: 50),
-                        decoration: BoxDecoration(
-                            color: Colors.transparent,
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                color: AppColors.pupleFlareColor,
-                                blurRadius: screenWidth * 0.9,
-                                // offset: const Offset(0, 5),
-                                spreadRadius: 10.0,
-                              ),
-                            ]),
-                      ),
-                    ],
-                  )),
+            Positioned(
+              top: screenHeight(context, percent: 2),
+              right: screenWidth * 0.4,
+              child: const BigPurpleFlare(),
             ),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if (screenWidth > Breakpoint.tablet &&
-                    screenWidth < Breakpoint.desktop)
-                  const Gap(300),
-                const Gap(100),
-                Align(
-                    alignment: Alignment.topRight,
-                    child: Container(
-                      width: screenWidth * 0.4,
-                      height: screenHeight(context, percent: 40),
-                      decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppColors.pupleFlareColor,
-                              blurRadius: screenWidth * 0.7,
-                              offset: const Offset(0, 5),
-                              spreadRadius: 2.0,
-                            ),
-                          ]),
-                    )),
-              ],
-            ),
+            Positioned(
+                top: screenHeight(context,
+                    percent: (screenWidth > Breakpoint.tablet &&
+                            screenWidth < Breakpoint.desktop)
+                        ? 50
+                        : 10),
+                left: screenWidth * 0.6,
+                child: const SmallPurpleFlare()),
             Column(
               children: [
                 const Gap(100),
@@ -81,33 +43,39 @@ class TimeWidgetLargeScreen extends StatelessWidget {
                 const ManWithGlassWorldWidget(),
               ],
             ),
-            Column(
-              children: [
-                const Gap(20),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: Sizes.p24, right: Sizes.p24, left: Sizes.p24),
-                        child: Text(
-                          "Igniting a Revolution in HR Innovation",
-                          style: AppTextStyles.italicTextStyle(
-                              fontSize: 36, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      const SvgAssetWidget(
-                        svgUrl: SvgAsset.curvedLine,
-                        color: AppColors.pinkColor,
-                      )
-                    ],
+            Positioned(
+              top: screenHeight(context, percent: 2),
+              left: (screenWidth > Breakpoint.tablet &&
+                      screenWidth < Breakpoint.desktop)
+                  ? screenWidth * 0.4
+                  : screenWidth * 0.5,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: Sizes.p24, right: Sizes.p24, left: Sizes.p24),
+                    child: Text(
+                      "Igniting a Revolution in HR Innovation",
+                      style: AppTextStyles.italicTextStyle(
+                          fontSize: (screenWidth > Breakpoint.tablet &&
+                                  screenWidth < Breakpoint.desktop)
+                              ? 24
+                              : 36,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
-                ),
-                const GetlinkedTextSection(),
-              ],
+                  const SvgAssetWidget(
+                    svgUrl: SvgAsset.curvedLine,
+                    color: AppColors.pinkColor,
+                  )
+                ],
+              ),
             ),
+            Positioned(
+                top: screenHeight(context, percent: 10),
+                left: screenWidth * 0.03,
+                child: const GetlinkedTextSection()),
             Positioned(
                 top: screenHeight(context, percent: 70),
                 left: screenWidth * 0.4,
@@ -118,8 +86,23 @@ class TimeWidgetLargeScreen extends StatelessWidget {
                 child: Image.asset(PngAsset.star1)),
             Positioned(
                 top: screenHeight(context, percent: 20),
-                left: screenWidth * 0.5,
+                left: screenWidth * 0.58,
                 child: Image.asset(PngAsset.star2)),
+            Positioned(
+                top: screenHeight(context, percent: 12),
+                left: screenWidth * 0.15,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 300),
+                  child: Image.asset(PngAsset.creativeIdea),
+                )),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                height: 0.2,
+                width: screenWidth,
+                color: AppColors.lightGreyColor,
+              ),
+            )
           ],
         ));
   }
