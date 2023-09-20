@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:getlinked_landing_page/core/core.dart';
+import 'package:getlinked_landing_page/presentation/widgets/header_text.dart';
 
 class OverviewDetails extends StatelessWidget {
   const OverviewDetails({
@@ -38,31 +39,8 @@ class OverviewDetails extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                RichText(
-                  text: TextSpan(
-                    text: "Introduction to getlinked\n",
-                    style: AppTextStyles.textStyle(
-                        fontSize: screenWidth(context) >= Breakpoint.tablet &&
-                                screenWidth(context) < 1100
-                            ? 24.spMin
-                            : 32.spMin,
-                        fontWeight: FontWeight.w800),
-                    children: [
-                      TextSpan(
-                        text: "tech Hackathon 1.0",
-                        style: AppTextStyles.textStyle(
-                            fontSize:
-                                screenWidth(context) >= Breakpoint.tablet &&
-                                        screenWidth(context) < 1100
-                                    ? 24.spMin
-                                    : 32.spMin,
-                            fontWeight: FontWeight.w800,
-                            color: AppColors.accentColor),
-                      )
-                    ],
-                  ),
-                ),
-                const Gap(20),
+                const HeaderText(firstText: "Introduction to getlinked", secondText: "techHackathon 1.0"),
+               const Gap(20),
                 Text(
                   Strings.introText,
                   style: AppTextStyles.textStyle(

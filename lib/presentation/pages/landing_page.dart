@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getlinked_landing_page/core/core.dart';
 import 'package:getlinked_landing_page/presentation/widgets/home_app_bar.dart';
+import 'package:getlinked_landing_page/presentation/widgets/judging_criteria/judgin_criteria_section.dart';
 import 'package:getlinked_landing_page/presentation/widgets/overview/overview_widget.dart';
 import 'package:getlinked_landing_page/presentation/widgets/purple_flares.dart';
 import 'package:getlinked_landing_page/presentation/widgets/rules_and_guidelines/rules_and_guidelines_widget.dart';
@@ -76,7 +77,10 @@ class OverviewandRulesWidget extends StatelessWidget {
                         screenWidth(context) < 1100
                     ? 50
                     : 90),
-            child: const BigPurpleFlare()),
+            child: screenWidth(context) >= Breakpoint.tablet &&
+                    screenWidth(context) < 1100
+                ? const SmallPurpleFlare()
+                : const BigPurpleFlare()),
         Positioned(
             top: screenHeight(context,
                 percent: screenWidth(context) >= Breakpoint.tablet &&
@@ -84,11 +88,15 @@ class OverviewandRulesWidget extends StatelessWidget {
                     ? 90
                     : 130),
             left: screenWidth(context, percent: 75),
-            child: const BigPurpleFlare()),
+            child: screenWidth(context) >= Breakpoint.tablet &&
+                    screenWidth(context) < 1100
+                ? const SmallPurpleFlare()
+                : const BigPurpleFlare()),
         Column(
           children: const [
             OverviewWidget(),
             RulesandGuidelines(),
+            JudgingCriteria(),
           ],
         ),
       ],

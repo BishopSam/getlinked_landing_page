@@ -19,4 +19,10 @@ class AppTextStyles {
           Color color = AppColors.white,
           FontWeight fontWeight = FontWeight.w400}) =>  GoogleFonts.montserrat(
           color: color, fontSize: fontSize, fontWeight: fontWeight, fontStyle: FontStyle.italic);
+  
+  static TextStyle headerTextStyle( {required double fontSize,
+          Color color = AppColors.white,
+          FontWeight fontWeight = FontWeight.w400}) =>  TextStyle(
+          color: color, fontSize: fontSize, fontWeight: fontWeight, fontFamily: AppFonts.clashDisplayBold);
+      
 }

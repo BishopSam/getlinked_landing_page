@@ -15,10 +15,9 @@ class GetlinkedTextSection extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         const Gap(50),
-       
         Text(
           "getlinked Tech",
-          style: AppTextStyles.textStyle(
+          style: AppTextStyles.headerTextStyle(
               fontSize: screenWidth(context) >= Breakpoint.tablet &&
                       screenWidth(context) < 1100
                   ? 60.spMin
@@ -32,8 +31,8 @@ class GetlinkedTextSection extends StatelessWidget {
               flex: 4,
               child: RichText(
                 text: TextSpan(
-                  text: "Hackathon",
-                  style: AppTextStyles.textStyle(
+                  text: "Hackathon ",
+                  style: AppTextStyles.headerTextStyle(
                     fontSize: screenWidth(context) >= Breakpoint.tablet &&
                             screenWidth(context) < 1100
                         ? 60.spMin
@@ -43,7 +42,7 @@ class GetlinkedTextSection extends StatelessWidget {
                   children: [
                     TextSpan(
                         text: "1.0",
-                        style: AppTextStyles.textStyle(
+                        style: AppTextStyles.headerTextStyle(
                             fontSize:
                                 screenWidth(context) >= Breakpoint.desktop &&
                                         screenWidth(context) < 1100

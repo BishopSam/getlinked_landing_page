@@ -70,6 +70,6 @@ flutter:
         - asset: assets/fonts/ClashDisplay-Regular.otf
     - family: Clash Display Bold
       fonts:
-        - asset: assets/fonts/ClashDisplay-Bold.otf
+        - asset: assets/fonts/ClashDisplay-Bold.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

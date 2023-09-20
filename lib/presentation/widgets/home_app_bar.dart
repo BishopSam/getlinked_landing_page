@@ -56,12 +56,12 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
           child: RichText(
             text: TextSpan(
                 text: "get",
-                style: AppTextStyles.textStyle(
+                style: AppTextStyles.headerTextStyle(
                     fontSize: 36, fontWeight: FontWeight.w700),
                 children: [
                   TextSpan(
                       text: "linked",
-                      style: AppTextStyles.textStyle(
+                      style: AppTextStyles.headerTextStyle(
                           fontSize: 36,
                           fontWeight: FontWeight.w700,
                           color: AppColors.accentColor))
@@ -103,12 +103,12 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
           child: RichText(
             text: TextSpan(
                 text: "get",
-                style: AppTextStyles.textStyle(
+                style: AppTextStyles.headerTextStyle(
                     fontSize: 36, fontWeight: FontWeight.w700),
                 children: [
                   TextSpan(
                       text: "linked",
-                      style: AppTextStyles.textStyle(
+                      style: AppTextStyles.headerTextStyle(
                           fontSize: 36,
                           fontWeight: FontWeight.w700,
                           color: AppColors.accentColor))
