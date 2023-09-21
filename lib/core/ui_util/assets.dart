@@ -17,6 +17,10 @@ class PngAsset {
   static const rulesAndGuidelines = 'assets/images/rules.png';
   static const judgingCriteria = "assets/images/judgingcriteria.png";
   static const faqsImage = "assets/images/faqs.png";
+  static const prizes = "assets/images/prizes.png";
+  static const firstPrize = "assets/images/firstprize.png";
+  static const secondPrize = "assets/images/secondprize.png";
+  static const thirdPrize = "assets/images/thirdprize.png";
   }
 
 class SvgAsset {

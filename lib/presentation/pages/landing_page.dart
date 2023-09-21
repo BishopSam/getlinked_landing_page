@@ -4,6 +4,7 @@ import 'package:getlinked_landing_page/presentation/widgets/faqs/faqs_widget.dar
 import 'package:getlinked_landing_page/presentation/widgets/home_app_bar.dart';
 import 'package:getlinked_landing_page/presentation/widgets/judging_criteria/judgin_criteria_section.dart';
 import 'package:getlinked_landing_page/presentation/widgets/overview/overview_widget.dart';
+import 'package:getlinked_landing_page/presentation/widgets/prizes/prizes_widget.dart';
 import 'package:getlinked_landing_page/presentation/widgets/purple_flares.dart';
 import 'package:getlinked_landing_page/presentation/widgets/rules_and_guidelines/rules_and_guidelines_widget.dart';
 import 'package:getlinked_landing_page/presentation/widgets/time/time_widget.dart';
@@ -26,6 +27,7 @@ class _LandingPageState extends State<LandingPage> {
     const TimeWidget(),
     const OverviewandRulesWidget(),
     const TimeLineWidget(),
+    const PrizesWidget(),
   ];
 
   @override

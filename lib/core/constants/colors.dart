@@ -7,6 +7,8 @@ class AppColors {
   static const Color accentColor = Color(0xFFD434FE);
   static const Color pupleFlareColor = Color(0xFF44087E);
   static const Color pinkColor = Color(0xFFFF26B9);
+  static const Color darkPrimaryColor =Color(0xFF110B20);
+  static const Color prizesCardColor = Color(0x1ED434FE);
 }
 
 class AppGradients {
