@@ -62,7 +62,7 @@ class MoreMenuButton extends StatelessWidget {
               ),
             ),
             PopupMenuItem(
-              value: PopupMenuOption.overview,
+              value: PopupMenuOption.faqs,
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                     vertical: Sizes.p8, horizontal: Sizes.p12),

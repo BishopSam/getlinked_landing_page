@@ -16,6 +16,7 @@ class PngAsset {
   static const star5 = 'assets/images/sata gra.png';
   static const rulesAndGuidelines = 'assets/images/rules.png';
   static const judgingCriteria = "assets/images/judgingcriteria.png";
+  static const faqsImage = "assets/images/faqs.png";
   }
 
 class SvgAsset {

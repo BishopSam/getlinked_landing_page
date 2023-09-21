@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getlinked_landing_page/core/core.dart';
+import 'package:getlinked_landing_page/presentation/widgets/faqs/faqs_widget.dart';
 import 'package:getlinked_landing_page/presentation/widgets/home_app_bar.dart';
 import 'package:getlinked_landing_page/presentation/widgets/judging_criteria/judgin_criteria_section.dart';
 import 'package:getlinked_landing_page/presentation/widgets/overview/overview_widget.dart';
@@ -32,8 +33,8 @@ class _LandingPageState extends State<LandingPage> {
         extendBody: true,
         appBar: HomeAppBar(
           onTimePressed: () => scrollToWidget(0),
-          onFAQsPressed: () {},
           onOverviewPressed: () => scrollToWidget(1),
+          onFAQsPressed: () => scrollToWidget(1, isFAQs: true),
           onContactPressed: () {},
           onRegisterPressed: () {},
         ),
@@ -54,11 +55,17 @@ class _LandingPageState extends State<LandingPage> {
         ));
   }
 
-  void scrollToWidget(int i) {
-    nestedController.scrollToIndex(i,
-        duration: const Duration(milliseconds: 300),
-        preferPosition:
-            i > 0 ? AutoScrollPosition.begin : AutoScrollPosition.middle);
+  void scrollToWidget(int i, {bool? isFAQs}) {
+    if (isFAQs != null) {
+      nestedController.scrollToIndex(i,
+          duration: const Duration(milliseconds: 300),
+          preferPosition: AutoScrollPosition.end);
+    } else {
+      nestedController.scrollToIndex(i,
+          duration: const Duration(milliseconds: 300),
+          preferPosition:
+              i > 0 ? AutoScrollPosition.begin : AutoScrollPosition.middle);
+    }
   }
 }
 
@@ -92,11 +99,20 @@ class OverviewandRulesWidget extends StatelessWidget {
                     screenWidth(context) < 1100
                 ? const SmallPurpleFlare()
                 : const BigPurpleFlare()),
+        Positioned(
+            top: screenHeight(context,
+                percent: screenWidth(context) >= Breakpoint.tablet &&
+                        screenWidth(context) < 1100
+                    ? 150
+                    : 200),
+            right: screenWidth(context, percent: 60),
+            child: const SmallPurpleFlare()),
         Column(
           children: const [
             OverviewWidget(),
             RulesandGuidelines(),
             JudgingCriteria(),
+            FAQsWidget(),
           ],
         ),
       ],
