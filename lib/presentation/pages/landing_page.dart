@@ -7,6 +7,7 @@ import 'package:getlinked_landing_page/presentation/widgets/overview/overview_wi
 import 'package:getlinked_landing_page/presentation/widgets/purple_flares.dart';
 import 'package:getlinked_landing_page/presentation/widgets/rules_and_guidelines/rules_and_guidelines_widget.dart';
 import 'package:getlinked_landing_page/presentation/widgets/time/time_widget.dart';
+import 'package:getlinked_landing_page/presentation/widgets/timeline/time_line_widget.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 class LandingPage extends StatefulWidget {
@@ -24,6 +25,7 @@ class _LandingPageState extends State<LandingPage> {
   final widgetList = [
     const TimeWidget(),
     const OverviewandRulesWidget(),
+    const TimeLineWidget(),
   ];
 
   @override
