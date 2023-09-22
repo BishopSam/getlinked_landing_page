@@ -21,6 +21,13 @@ class PngAsset {
   static const firstPrize = "assets/images/firstprize.png";
   static const secondPrize = "assets/images/secondprize.png";
   static const thirdPrize = "assets/images/thirdprize.png";
+  static const winwise = 'assets/images/winwise.png';
+  static const whisperisms = 'assets/images/whisperisms.png';
+  static const libertyPay = 'assets/images/liberty pay.png';
+  static const libertyAssured = 'assets/images/libertyassuredsponsor.png';
+  static const vizualPlus = 'assets/images/Vizual Plus.png';
+  static const payBox = 'assets/images/Paybox.png';
+
   }
 
 class SvgAsset {
