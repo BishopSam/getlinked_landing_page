@@ -21,7 +21,7 @@ class PrizesLarge extends StatelessWidget {
                 left: screenWidth(context, percent: 10),
                 child: const SmallPurpleFlare()),
             Positioned(
-                top: screenHeight(context, percent: 40),
+                top: screenHeight(context, percent: 20),
                 left: screenWidth(context, percent: 80),
                 child: const SmallPurpleFlare()),
             Positioned(
@@ -68,7 +68,3 @@ class PrizesLarge extends StatelessWidget {
     );
   }
 }
-
-
-
-

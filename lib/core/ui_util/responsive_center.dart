@@ -4,7 +4,7 @@ import 'package:getlinked_landing_page/core/constants/breakpoints.dart';
 class ResponsiveCenter extends StatelessWidget {
   const ResponsiveCenter({
     super.key,
-    this.maxContentWidth = Breakpoint.desktop,
+    this.maxContentWidth = Breakpoint.maxWidth,
     this.padding = EdgeInsets.zero,
     required this.child,
   });

@@ -42,10 +42,19 @@ class Strings {
 
   static const timelineDate = "November 18, 2023";
 
-  static const timelineDesc1 = "The getlinked tech hackathon 1.0 is formally announced to the general public and teams begin to get ready to register";
-  static const timelineDesc2 = "Interested teams can now show their interest in the getlinked tech hackathon 1.0 2023 by proceeding to register";
-  static const timelineDesc3 = "Interested Participants are no longer Allowed to register";
-  static const timelineDesc4 = "All teams whom idea has been accepted into getlinked tech hackathon 1.0 2023 are formally announced";
-  static const timelineDesc5 = "Accepted teams can now proceed to build their ground breaking skill driven solutions";
-  static const timelineDesc6 = "Teams get the opportunity to pitch their projects to judges. The winner of the hackathon will also be announced on this day";
+  static const timelineDesc1 =
+      "The getlinked tech hackathon 1.0 is formally announced to the general public and teams begin to get ready to register";
+  static const timelineDesc2 =
+      "Interested teams can now show their interest in the getlinked tech hackathon 1.0 2023 by proceeding to register";
+  static const timelineDesc3 =
+      "Interested Participants are no longer Allowed to register";
+  static const timelineDesc4 =
+      "All teams whom idea has been accepted into getlinked tech hackathon 1.0 2023 are formally announced";
+  static const timelineDesc5 =
+      "Accepted teams can now proceed to build their ground breaking skill driven solutions";
+  static const timelineDesc6 =
+      "Teams get the opportunity to pitch their projects to judges. The winner of the hackathon will also be announced on this day";
+
+  static const privacyPolicyPreamble =
+      "At getlinked tech Hackathon 1.0, we value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, disclose, and safeguard your data when you participate in our tech hackathon event. By participating in our event, you consent to the practices described in this policy.";
 }
