@@ -1,5 +1,7 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:getlinked_landing_page/core/core.dart';
 
 class TimelineInfoWidget extends StatelessWidget {
@@ -46,6 +48,63 @@ class TimelineInfoWidget extends StatelessWidget {
   }
 }
 
+/// mobile version of [TimelineInfoWidget]
+class TimelineInfoWidgetMobile extends StatelessWidget {
+  const TimelineInfoWidgetMobile({
+    Key? key,
+    required this.date,
+    required this.description,
+    required this.title,
+    required this.index,
+  }) : super(key: key);
+  final String date;
+  final String description;
+  final String title;
+  final String index;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        IndexDividerMobile(index: index),
+        const Gap(10),
+        Expanded(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: AppTextStyles.textStyle(
+                    fontSize: 12.spMin,
+                    color: AppColors.accentColor,
+                    fontWeight: FontWeight.w700),
+              ),
+              const Gap(5),
+              Text(
+                description,
+                style: AppTextStyles.textStyle(
+                    fontSize: 10.spMin,
+                    color: AppColors.white,
+                    fontWeight: FontWeight.w700),
+              ),
+              const Gap(5),
+              Text(
+                date,
+                style: AppTextStyles.textStyle(
+                    fontSize: 12.spMin,
+                    color: AppColors.accentColor,
+                    fontWeight: FontWeight.w700),
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}
+
 class IndexDivider extends StatelessWidget {
   const IndexDivider({
     Key? key,
@@ -81,6 +140,46 @@ class IndexDivider extends StatelessWidget {
           ),
         ),
         const Gap(15),
+      ],
+    );
+  }
+}
+
+class IndexDividerMobile extends StatelessWidget {
+  const IndexDividerMobile({
+    Key? key,
+    required this.index,
+  }) : super(key: key);
+
+  final String index;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          height: 50,
+          width: 4,
+          color: AppColors.accentColor,
+        ),
+        const Gap(5),
+        Container(
+          width: 25,
+          height: 25,
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: AppGradients.timelineLinearGradient,
+          ),
+          child: Center(
+            child: Text(
+              index,
+              style: AppTextStyles.textStyle(
+                  fontSize: 12.spMin, fontWeight: FontWeight.w700),
+            ),
+          ),
+        ),
+        const Gap(5),
       ],
     );
   }

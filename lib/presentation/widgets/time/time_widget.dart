@@ -16,8 +16,8 @@ class TimeWidget extends StatefulWidget {
 class _TimeWidgetState extends State<TimeWidget> {
   DateTime dateTime1 = DateTime.now();
 
-  ///* 26th September 2023, Anouncement of Winner
-  DateTime dateTime2 = DateTime(2023, 9, 26, 12, 0);
+  //* 26th September 2023, Anouncement of Winner
+  DateTime dateTime2 = DateTime(2023, 9, 23, 23, 59);
 
   Timer? countdownTimer;
   Duration? myDuration;
