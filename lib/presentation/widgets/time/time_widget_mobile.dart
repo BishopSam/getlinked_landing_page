@@ -12,11 +12,13 @@ class TimeWidgetMobile extends StatelessWidget {
       required this.myDuration,
       required this.minutes,
       required this.seconds,
-      required this.hours});
+      required this.hours,
+      required this.onRegisterPressed});
   final Duration? myDuration;
   final String minutes;
   final String seconds;
   final String hours;
+  final VoidCallback onRegisterPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +36,10 @@ class TimeWidgetMobile extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Gap(70),
-              const GetlinkedTextSectionMobile(),
+              const Gap(40),
+              GetlinkedTextSectionMobile(
+                onRegisterPressed: onRegisterPressed,
+              ),
               const Gap(20),
               CountDownWidget(hours: hours, minutes: minutes, seconds: seconds),
               const Gap(20),

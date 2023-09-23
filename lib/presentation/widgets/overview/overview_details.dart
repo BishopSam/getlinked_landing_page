@@ -70,7 +70,8 @@ class OverviewDetailsMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: Sizes.p32),
+      padding: const EdgeInsets.symmetric(
+          horizontal: Sizes.p32, vertical: Sizes.p32),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,

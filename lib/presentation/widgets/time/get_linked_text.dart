@@ -11,10 +11,12 @@ class GetlinkedTextSection extends StatelessWidget {
     required this.minutes,
     required this.seconds,
     required this.hours,
+    required this.onRegisterPressed,
   }) : super(key: key);
   final String minutes;
   final String seconds;
   final String hours;
+  final VoidCallback onRegisterPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +78,7 @@ class GetlinkedTextSection extends StatelessWidget {
         ),
         const Gap(20),
         ButtonWidget(
-          onTap: () {},
+          onTap: onRegisterPressed,
           text: "Register",
           width: 172,
         ),
@@ -95,99 +97,102 @@ class GetlinkedTextSection extends StatelessWidget {
 class GetlinkedTextSectionMobile extends StatelessWidget {
   const GetlinkedTextSectionMobile({
     Key? key,
+    required this.onRegisterPressed,
   }) : super(key: key);
+  final VoidCallback onRegisterPressed;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
+    return Stack(
       children: [
-        const Gap(10),
-        Padding(
-          padding: const EdgeInsets.only(
-              top: Sizes.p24, right: Sizes.p24, left: Sizes.p24),
-          child: Text(
-            "Igniting a Revolution in HR Innovation",
-            style: AppTextStyles.italicTextStyle(
-                fontSize: 16.spMin, fontWeight: FontWeight.bold),
-          ),
-        ),
-        const SvgAssetWidget(
-          svgUrl: SvgAsset.curvedLine,
-          color: AppColors.pinkColor,
-          height: 24,
-        ),
-        const Gap(20),
-        Stack(
+        Positioned(
+            top: screenHeight(context, percent: 10),
+            left: screenWidth(context, percent: 50),
+            child: Image.asset(
+              PngAsset.creativeIdea,
+              width: 35,
+              height: 35,
+            )),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Positioned(
-                top: screenHeight(context, percent: 12),
-                left: screenWidth(context, percent: 15),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 300),
-                  child: Image.asset(PngAsset.creativeIdea),
-                )),
+            const Gap(10),
+            Padding(
+              padding: const EdgeInsets.only(
+                  top: Sizes.p24, right: Sizes.p24, left: Sizes.p24),
+              child: Text(
+                "Igniting a Revolution in HR Innovation",
+                style: AppTextStyles.italicTextStyle(
+                    fontSize: 16.spMin, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SvgAssetWidget(
+              svgUrl: SvgAsset.curvedLine,
+              color: AppColors.pinkColor,
+              height: 24,
+            ),
+            const Gap(20),
             Text(
               "getlinked Tech",
               style: AppTextStyles.headerTextStyle(
                   fontSize: 32.spMin, fontWeight: FontWeight.w800),
             ),
-          ],
-        ),
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Flexible(
-              flex: 4,
-              child: RichText(
-                text: TextSpan(
-                  text: "Hackathon ",
-                  style: AppTextStyles.headerTextStyle(
-                    fontSize: 32.spMin,
-                    fontWeight: FontWeight.w800,
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Flexible(
+                  flex: 4,
+                  child: RichText(
+                    text: TextSpan(
+                      text: "Hackathon ",
+                      style: AppTextStyles.headerTextStyle(
+                        fontSize: 32.spMin,
+                        fontWeight: FontWeight.w800,
+                      ),
+                      children: [
+                        TextSpan(
+                            text: "1.0",
+                            style: AppTextStyles.headerTextStyle(
+                                fontSize: 32.spMin,
+                                fontWeight: FontWeight.w800,
+                                color: AppColors.accentColor))
+                      ],
+                    ),
                   ),
-                  children: [
-                    TextSpan(
-                        text: "1.0",
-                        style: AppTextStyles.headerTextStyle(
-                            fontSize: 32.spMin,
-                            fontWeight: FontWeight.w800,
-                            color: AppColors.accentColor))
-                  ],
                 ),
+                Flexible(
+                    flex: 1,
+                    child: Image.asset(
+                      PngAsset.chain,
+                      height: 32,
+                      width: 32,
+                    )),
+                Flexible(
+                    flex: 1,
+                    child: Image.asset(
+                      PngAsset.kapow,
+                      height: 32,
+                      width: 32,
+                    )),
+              ],
+            ),
+            const Gap(10),
+            Text(
+              "Participate in getlinked tech Hackathon 2023 stand \na chance to win a Big prize",
+              textAlign: TextAlign.center,
+              style: AppTextStyles.textStyle(
+                fontSize: 13.spMin,
+                fontWeight: FontWeight.w400,
               ),
             ),
-            Flexible(
-                flex: 1,
-                child: Image.asset(
-                  PngAsset.chain,
-                  height: 32,
-                  width: 32,
-                )),
-            Flexible(
-                flex: 1,
-                child: Image.asset(
-                  PngAsset.kapow,
-                  height: 32,
-                  width: 32,
-                )),
+            const Gap(20),
+            ButtonWidget(
+              onTap: onRegisterPressed,
+              text: "Register",
+              width: 152,
+            ),
           ],
-        ),
-        const Gap(10),
-        Text(
-          "Participate in getlinked tech Hackathon 2023 stand \na chance to win a Big prize",
-          textAlign: TextAlign.center,
-          style: AppTextStyles.textStyle(
-            fontSize: 13.spMin,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-        const Gap(20),
-        ButtonWidget(
-          onTap: () {},
-          text: "Register",
-          width: 152,
         ),
       ],
     );

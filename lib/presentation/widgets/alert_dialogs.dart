@@ -202,3 +202,92 @@ void showSuccessDialog(BuildContext context) {
         ),
       ));
 }
+
+void showMobileSuccessDialog(BuildContext context) {
+  return showAlertDialog(
+      context,
+      Material(
+        color: AppColors.darkPrimaryColor.withOpacity(0.7),
+        child: Stack(
+          children: [
+            Positioned(
+              top: screenHeight(context, percent: 18),
+              left: screenWidth(context, percent: 75),
+              child: Image.asset(
+                PngAsset.star5,
+              ),
+            ),
+            Positioned(
+              top: screenHeight(context, percent: 40),
+              left: screenWidth(context, percent: 30),
+              child: Image.asset(
+                PngAsset.star2,
+              ),
+            ),
+            Positioned(
+              top: screenHeight(context, percent: 75),
+              left: screenWidth(context, percent: 70),
+              child: Image.asset(
+                PngAsset.star5,
+              ),
+            ),
+            Center(
+              child: Container(
+                height: screenHeight(context, percent: 50),
+                width: screenWidth(context, percent: 60),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: Sizes.p12, vertical: Sizes.p12),
+                decoration: ShapeDecoration(
+                  color: Colors.transparent,
+                  shape: RoundedRectangleBorder(
+                    side: const BorderSide(
+                        width: 1, color: AppColors.accentColor),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Image.asset(
+                            PngAsset.networkSuccessTick,
+                            width: screenWidth(context, percent: 25),
+                            height: screenHeight(context, percent: 25),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: Sizes.p64),
+                            child: Image.asset(
+                              PngAsset.networkSuccessMan,
+                              width: screenWidth(context, percent: 25),
+                              height: screenHeight(context, percent: 25),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        "Congratulations \nyou have successfully Registered!",
+                        textAlign: TextAlign.center,
+                        style: AppTextStyles.textStyle(
+                            fontSize: 16.spMin, fontWeight: FontWeight.bold),
+                      ),
+                      const Gap(5),
+                      Text(
+                        "Yes, it was easy and you did it! \ncheck your mail box for next step",
+                        textAlign: TextAlign.center,
+                        style: AppTextStyles.textStyle(fontSize: 14.spMin),
+                      ),
+                      const Gap(5),
+                      ButtonWidget(
+                          onTap: () => Navigator.pop(context), text: "Back"),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ));
+}

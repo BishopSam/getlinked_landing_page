@@ -7,7 +7,8 @@ import 'package:getlinked_landing_page/presentation/widgets/time/time_widget_lar
 import 'package:getlinked_landing_page/presentation/widgets/time/time_widget_mobile.dart';
 
 class TimeWidget extends StatefulWidget {
-  const TimeWidget({super.key});
+  const TimeWidget({super.key, required this.onRegisterPressed});
+  final VoidCallback onRegisterPressed;
 
   @override
   State<TimeWidget> createState() => _TimeWidgetState();
@@ -73,11 +74,13 @@ class _TimeWidgetState extends State<TimeWidget> {
     if (screenWidth >= Breakpoint.tablet) {
       return TimeWidgetLargeScreen(
           screenWidth: screenWidth,
+          onRegisterPressed: widget.onRegisterPressed,
           minutes: minutes ?? "",
           seconds: seconds ?? "",
           hours: hours ?? "");
     } else {
       return TimeWidgetMobile(
+          onRegisterPressed: widget.onRegisterPressed,
           myDuration: myDuration,
           minutes: minutes ?? "",
           seconds: seconds ?? "",

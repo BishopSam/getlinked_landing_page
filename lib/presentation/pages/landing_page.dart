@@ -29,14 +29,12 @@ class _LandingPageState extends State<LandingPage> {
 
   final timeWidgetKey = GlobalKey();
   final overviewWidgetKey = GlobalKey();
-
-  final widgetList = [
-    const TimeWidget(),
-    const OverviewandRulesWidget(),
-    const TimeLineWidget(),
-    PrizesWidget(),
-    const PartnersandPrivacyWidget(),
-  ];
+  List<Widget> widgetList = [];
+  @override
+  void initState() {
+    initWidgets();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,58 +43,11 @@ class _LandingPageState extends State<LandingPage> {
         extendBodyBehindAppBar: true,
         extendBody: true,
         appBar: HomeAppBar(
-          onTimePressed: () {
-            if (screenWidth >= Breakpoint.tablet) {
-              pageController
-                  .animateToPage(0,
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeIn)
-                  .then((value) => scrollToWidget(0));
-            }
-          },
-          onOverviewPressed: () {
-            if (screenWidth >= Breakpoint.tablet) {
-              pageController
-                  .animateToPage(0,
-                      duration: const Duration(milliseconds: 500),
-                      curve: Curves.easeIn)
-                  .then((value) =>
-                      Future.delayed(const Duration(milliseconds: 200), () {
-                        scrollToWidget(1);
-                      }));
-            }
-          },
-          onFAQsPressed: () {
-            if (screenWidth >= Breakpoint.tablet) {
-              pageController
-                  .animateToPage(0,
-                      duration: const Duration(milliseconds: 500),
-                      curve: Curves.easeIn)
-                  .then((value) =>
-                      Future.delayed(const Duration(milliseconds: 200), () {
-                        scrollToWidget(1, isFAQs: true);
-                      }));
-            }
-          },
-          onContactPressed: () {
-            if (screenWidth >= Breakpoint.tablet) {
-              pageController.animateToPage(1,
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeIn);
-            } else {
-              final route = MaterialPageRoute(
-                builder: (context) => const ContactPage(),
-              );
-              Navigator.push(context, route);
-            }
-          },
-          onRegisterPressed: () {
-            if (screenWidth >= Breakpoint.tablet) {
-              pageController.animateToPage(2,
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeIn);
-            }
-          },
+          onTimePressed: onTimePressed,
+          onOverviewPressed: onOverviewPressed,
+          onFAQsPressed: onFAQsPressed,
+          onContactPressed: onContactPressed,
+          onRegisterPressed: onRegisterPressed,
         ),
         body: screenWidth >= Breakpoint.tablet
             ? PageView(
@@ -137,6 +88,81 @@ class _LandingPageState extends State<LandingPage> {
                   ],
                 ),
               ));
+  }
+
+  initWidgets() {
+    widgetList = [
+      TimeWidget(
+        onRegisterPressed: onRegisterPressed,
+      ),
+      const OverviewandRulesWidget(),
+      const TimeLineWidget(),
+      PrizesWidget(),
+      const PartnersandPrivacyWidget(),
+    ];
+  }
+
+  void onRegisterPressed() {
+    if (screenWidth(context) >= Breakpoint.tablet) {
+      pageController.animateToPage(2,
+          duration: const Duration(milliseconds: 700), curve: Curves.easeIn);
+    } else {
+      final route = MaterialPageRoute(
+        builder: (context) => const RegisterPage(),
+      );
+      Navigator.push(context, route);
+    }
+  }
+
+  void onTimePressed() {
+    if (screenWidth(context) >= Breakpoint.tablet) {
+      pageController
+          .animateToPage(0,
+              duration: const Duration(milliseconds: 700), curve: Curves.easeIn)
+          .then((value) => scrollToWidget(0));
+    } else {
+      scrollToWidget(0);
+    }
+  }
+
+  void onOverviewPressed() {
+    if (screenWidth(context) >= Breakpoint.tablet) {
+      pageController
+          .animateToPage(0,
+              duration: const Duration(milliseconds: 700), curve: Curves.easeIn)
+          .then(
+              (value) => Future.delayed(const Duration(milliseconds: 500), () {
+                    scrollToWidget(1);
+                  }));
+    } else {
+      scrollToWidget(1);
+    }
+  }
+
+  void onContactPressed() {
+    if (screenWidth(context) >= Breakpoint.tablet) {
+      pageController.animateToPage(1,
+          duration: const Duration(milliseconds: 700), curve: Curves.easeIn);
+    } else {
+      final route = MaterialPageRoute(
+        builder: (context) => const ContactPage(),
+      );
+      Navigator.push(context, route);
+    }
+  }
+
+  void onFAQsPressed() {
+    if (screenWidth(context) >= Breakpoint.tablet) {
+      pageController
+          .animateToPage(0,
+              duration: const Duration(milliseconds: 700), curve: Curves.easeIn)
+          .then(
+              (value) => Future.delayed(const Duration(milliseconds: 500), () {
+                    scrollToWidget(1, isFAQs: true);
+                  }));
+    } else {
+      scrollToWidget(1, isFAQs: true);
+    }
   }
 
   void scrollToWidget(int i, {bool? isFAQs}) {

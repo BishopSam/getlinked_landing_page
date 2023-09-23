@@ -6,6 +6,7 @@ import 'package:getlinked_landing_page/domain/models/category.dart';
 import 'package:getlinked_landing_page/presentation/view_models/register_page_vm.dart';
 import 'package:getlinked_landing_page/presentation/widgets/alert_dialogs.dart';
 import 'package:getlinked_landing_page/presentation/widgets/register_page.dart/register_large.dart';
+import 'package:getlinked_landing_page/presentation/widgets/register_page.dart/register_mobile.dart';
 
 class RegisterPage extends ConsumerStatefulWidget {
   const RegisterPage({super.key});
@@ -34,6 +35,67 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   void initState() {
     super.initState();
     getCategories();
+  }
+
+  
+  @override
+  Widget build(BuildContext context) {
+    ref.listen(registerPageVmProvider, (previous, next) {
+      if (next.status == Status.completed) {
+        Navigator.pop(context);
+        if (screenWidth(context) >= Breakpoint.tablet) {
+          showSuccessDialog(context);
+        } else {
+          showMobileSuccessDialog(context);
+        }
+        clearDetails();
+      }
+      if (next.status == Status.loading) {
+        showLoadingDialog(context);
+      }
+      if (next.status == Status.error) {
+        Navigator.pop(context);
+        showMessage(context, next.message, isError: true);
+      }
+    });
+
+    if (screenWidth(context) >= Breakpoint.tablet) {
+      return Scaffold(
+        body: RegisterPageLarge(
+          teamsNameCtrl: teamsNameCtrl,
+          emailCtrl: emailCtrl,
+          isTermsAgreed: isTermsAgreed,
+          phoneCtrl: phoneCtrl,
+          projectCtrl: projectCtrl,
+          formKey: formKey,
+          onPresseed: submitForm,
+          category: category,
+          groupSize: groupSize,
+          groupSizes: groupSizes,
+          onCategorySelect: onCategorySelect,
+          onGroupSizeSelect: onGroupSizeSelect,
+          onIsTermsChanged: onIsTermsAgreed,
+          categories: categories ?? [],
+        ),
+      );
+    }
+    return Scaffold(
+      body: RegisterMobile(
+          teamsNameCtrl: teamsNameCtrl,
+          emailCtrl: emailCtrl,
+          phoneCtrl: phoneCtrl,
+          projectCtrl: projectCtrl,
+          category: category,
+          groupSize: groupSize,
+          categories: categories ?? [],
+          groupSizes: groupSizes,
+          onCategorySelect: onCategorySelect,
+          onGroupSizeSelect: onGroupSizeSelect,
+          formKey: formKey,
+          onPresseed: submitForm,
+          isTermsAgreed: isTermsAgreed,
+          onIsTermsChanged: onIsTermsAgreed),
+    );
   }
 
   void getCategories() async {
@@ -85,41 +147,4 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     setState(() {});
   }
 
-  @override
-  Widget build(BuildContext context) {
-    ref.listen(registerPageVmProvider, (previous, next) {
-      if (next.status == Status.completed) {
-        Navigator.pop(context);
-        showSuccessDialog(context);
-        clearDetails();
-      }
-      if (next.status == Status.loading) {
-        showLoadingDialog(context);
-      }
-      if (next.status == Status.error) {
-        Navigator.pop(context);
-        showMessage(context, next.message, isError: true);
-      }
-    });
-
-    if (screenWidth(context) >= Breakpoint.tablet) {
-      return RegisterPageLarge(
-        teamsNameCtrl: teamsNameCtrl,
-        emailCtrl: emailCtrl,
-        isTermsAgreed: isTermsAgreed,
-        phoneCtrl: phoneCtrl,
-        projectCtrl: projectCtrl,
-        formKey: formKey,
-        onPresseed: submitForm,
-        category: category,
-        groupSize: groupSize,
-        groupSizes: groupSizes,
-        onCategorySelect: onCategorySelect,
-        onGroupSizeSelect: onGroupSizeSelect,
-        onIsTermsChanged: onIsTermsAgreed,
-        categories: categories ?? [],
-      );
-    }
-    return Container();
-  }
 }
