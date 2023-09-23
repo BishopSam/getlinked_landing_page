@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getlinked_landing_page/core/core.dart';
+import 'package:getlinked_landing_page/presentation/pages/contact_page.dart';
 import 'package:getlinked_landing_page/presentation/widgets/faqs/faqs_widget.dart';
 import 'package:getlinked_landing_page/presentation/widgets/footer/footer_widget.dart';
 import 'package:getlinked_landing_page/presentation/widgets/home_app_bar.dart';
@@ -23,6 +24,8 @@ class LandingPage extends StatefulWidget {
 
 class _LandingPageState extends State<LandingPage> {
   final AutoScrollController nestedController = AutoScrollController();
+  final PageController pageController = PageController();
+
   final timeWidgetKey = GlobalKey();
   final overviewWidgetKey = GlobalKey();
 
@@ -36,31 +39,91 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         extendBodyBehindAppBar: true,
         extendBody: true,
         appBar: HomeAppBar(
-          onTimePressed: () => scrollToWidget(0),
-          onOverviewPressed: () => scrollToWidget(1),
-          onFAQsPressed: () => scrollToWidget(1, isFAQs: true),
-          onContactPressed: () {},
+          onTimePressed: () {
+            if (screenWidth >= Breakpoint.tablet) {
+              pageController
+                  .animateToPage(0,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeIn)
+                  .then((value) => scrollToWidget(0));
+            }
+          },
+          onOverviewPressed: () {
+            if (screenWidth >= Breakpoint.tablet) {
+              pageController
+                  .animateToPage(0,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeIn)
+                  .then((value) =>
+                      Future.delayed(const Duration(milliseconds: 200), () {
+                        scrollToWidget(1);
+                      }));
+            }
+          },
+          onFAQsPressed: () {
+            if (screenWidth >= Breakpoint.tablet) {
+              pageController
+                  .animateToPage(0,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeIn)
+                  .then((value) =>
+                      Future.delayed(const Duration(milliseconds: 200), () {
+                        scrollToWidget(1, isFAQs: true);
+                      }));
+            }
+          },
+          onContactPressed: () {
+            if (screenWidth >= Breakpoint.tablet) {
+              pageController.animateToPage(1,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeIn);
+            }
+          },
           onRegisterPressed: () {},
         ),
-        body: SingleChildScrollView(
-          controller: nestedController,
-          child: Column(
-            children: [
-              const Gap(50),
-              for (int i = 0; i < widgetList.length; i++) ...[
-                AutoScrollTag(
-                    key: ValueKey(i),
+        body: screenWidth >= Breakpoint.tablet
+            ? PageView(
+                controller: pageController,
+                physics: const NeverScrollableScrollPhysics(),
+                children: [
+                  SingleChildScrollView(
                     controller: nestedController,
-                    index: i,
-                    child: widgetList[i])
-              ]
-            ],
-          ),
-        ));
+                    child: Column(
+                      children: [
+                        const Gap(50),
+                        for (int i = 0; i < widgetList.length; i++) ...[
+                          AutoScrollTag(
+                              key: ValueKey(i),
+                              controller: nestedController,
+                              index: i,
+                              child: widgetList[i])
+                        ]
+                      ],
+                    ),
+                  ),
+                  const ContactPage(),
+                ],
+              )
+            : SingleChildScrollView(
+                controller: nestedController,
+                child: Column(
+                  children: [
+                    const Gap(50),
+                    for (int i = 0; i < widgetList.length; i++) ...[
+                      AutoScrollTag(
+                          key: ValueKey(i),
+                          controller: nestedController,
+                          index: i,
+                          child: widgetList[i])
+                    ]
+                  ],
+                ),
+              ));
   }
 
   void scrollToWidget(int i, {bool? isFAQs}) {

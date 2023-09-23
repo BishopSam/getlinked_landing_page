@@ -30,12 +30,14 @@ class PngAsset {
   static const privacyPolicyMan = "assets/images/privacyandpolicy1.png";
   static const privacyLock = "assets/images/prvacy_lock.png";
   static const listTermsClick = "assets/images/list terms.png";
+  static const networkSuccessTick = "assets/images/networksuccess.png";
+  static const networkSuccessMan = "assets/images/networksuccessman.png";
+  static const registerMan = "assets/images/registerman.png";
 }
 
 class SvgAsset {
   static const moreIcon = 'assets/icons/Vector (3).svg';
   static const curvedLine = 'assets/icons/Vector 4.svg';
-  
 
   static const x = "assets/icons/x.svg";
   static const facebook = "assets/icons/facebook.svg";

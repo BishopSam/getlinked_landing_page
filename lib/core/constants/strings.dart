@@ -57,4 +57,8 @@ class Strings {
 
   static const privacyPolicyPreamble =
       "At getlinked tech Hackathon 1.0, we value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, disclose, and safeguard your data when you participate in our tech hackathon event. By participating in our event, you consent to the practices described in this policy.";
+
+  static const noInternet = "No Internet connection";
+  static const connectionTimeOut = "Connection timeout";
+  static const connectionCancelled = "Connection was cancelled";
 }

@@ -29,11 +29,16 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animate_do: ^3.0.2
+  another_flushbar: ^1.10.28
   cupertino_icons: ^1.0.2
+  dio: ^5.3.3
   flutter:
     sdk: flutter
+  flutter_riverpod: ^2.3.3
   flutter_screenutil: ^5.7.0
   flutter_svg: ^1.0.3
+  get_it: ^7.2.0
   google_fonts: ^4.0.3
   scroll_to_index: ^3.0.1
 
