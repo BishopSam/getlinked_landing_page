@@ -34,7 +34,7 @@ class _LandingPageState extends State<LandingPage> {
     const TimeWidget(),
     const OverviewandRulesWidget(),
     const TimeLineWidget(),
-    const PrizesWidget(),
+    PrizesWidget(),
     const PartnersandPrivacyWidget(),
   ];
 

@@ -1,32 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:getlinked_landing_page/core/core.dart';
+import 'package:getlinked_landing_page/presentation/widgets/prizes/prizes_widget.dart';
 
 import '../header_text.dart';
 import 'prizes_position_widget.dart';
 
 class PrizeDetails extends StatelessWidget {
-  PrizeDetails({
-    Key? key,
+  const PrizeDetails({
+    Key? key, required this.prizesList,
   }) : super(key: key);
 
-  final prizesList = [
-    _PrizesModel(
-        position: "2nd",
-        prizeMoney: "₦300,000",
-        assetPath: PngAsset.secondPrize,
-        isFirst: false),
-    _PrizesModel(
-        position: "1st",
-        prizeMoney: "₦400,000",
-        assetPath: PngAsset.firstPrize,
-        isFirst: true),
-    _PrizesModel(
-        position: "3rd",
-        prizeMoney: "₦150,000",
-        assetPath: PngAsset.thirdPrize,
-        isFirst: false),
-  ];
+  final List<PrizesModel> prizesList;
 
   @override
   Widget build(BuildContext context) {
@@ -83,15 +68,4 @@ class PrizeDetails extends StatelessWidget {
   }
 }
 
-class _PrizesModel {
-  final String position;
-  final String prizeMoney;
-  final String assetPath;
-  final bool isFirst;
-  _PrizesModel({
-    required this.position,
-    required this.prizeMoney,
-    required this.assetPath,
-    required this.isFirst,
-  });
-}
+

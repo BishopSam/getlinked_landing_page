@@ -1,12 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:getlinked_landing_page/core/core.dart';
+import 'package:getlinked_landing_page/presentation/widgets/prizes/prizes_widget.dart';
 import 'package:getlinked_landing_page/presentation/widgets/purple_flares.dart';
 
 import 'prizes_details.dart';
 
 class PrizesLarge extends StatelessWidget {
-  const PrizesLarge({super.key});
+  const PrizesLarge({super.key, required this.prizeList});
+  final List<PrizesModel> prizeList;
 
   @override
   Widget build(BuildContext context) {
@@ -60,10 +62,12 @@ class PrizesLarge extends StatelessWidget {
                 PngAsset.star5,
               ),
             ),
-            PrizeDetails(),
+            PrizeDetails(prizesList: prizeList,),
           ],
         ),
       ),
     );
   }
 }
+
+

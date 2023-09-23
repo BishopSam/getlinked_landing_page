@@ -117,3 +117,70 @@ class PrizePositionWidget extends StatelessWidget {
     );
   }
 }
+
+class PrizePositionWidgetMobile extends StatelessWidget {
+  const PrizePositionWidgetMobile({
+    Key? key,
+    required this.position,
+    required this.prizeMoney,
+    required this.assetPath,
+    required this.isFirst,
+  }) : super(key: key);
+  final String position;
+  final String prizeMoney;
+  final String assetPath;
+  final bool isFirst;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.topCenter,
+      children: [
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Gap(isFirst ? 50 : 30),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              decoration: BoxDecoration(
+                  border: Border.all(color: AppColors.accentColor),
+                  borderRadius: BorderRadius.circular(4.r),
+                  color: AppColors.prizesCardColor),
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Gap(35),
+                    Text(
+                      position,
+                      style: AppTextStyles.textStyle(
+                          fontSize: 14.spMin, fontWeight: FontWeight.w700),
+                    ),
+                    Text(
+                      "Runner",
+                      style: AppTextStyles.textStyle(
+                          fontSize: 12.spMin, fontWeight: FontWeight.w600),
+                    ),
+                    const Gap(10),
+                    Text(
+                      prizeMoney,
+                      style: AppTextStyles.textStyle(
+                          fontSize: 14.spMin,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.accentColor),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+        Image.asset(
+          assetPath,
+          width: isFirst ? 125 : 76,
+          height: isFirst ? 125 : 76,
+        )
+      ],
+    );
+  }
+}
