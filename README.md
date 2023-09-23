@@ -1,16 +1,43 @@
-# getlinked_landing_page
+# Getlinked
 
-A new Flutter project.
+getlinked.ai hackathon
 
-## Getting Started
+Live Link [Here](https://getlinkedbybishopeze.netlify.app/)
 
-This project is a starting point for a Flutter application.
+Table of contents
+=================
+<!--ts-->
+   * [Project Structure](#project-structure)
+   * [Tools Used](#tools-used)
+   * [App Demo](#app-demo)
+   
+<!--te-->
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Project Structure
+=================
+For this project, I am making use of the layer-first project structure;
+| Layers | Description |
+| ------- | ------- |
+| presentaton | All `widget` and `viewmodel` classes go in here |
+| domain | All `model`, `usecases`, and `repo` classes go in here |
+| data | Api and repository classes go in here |
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+I'm also making use of clean architecture.
+This will ensure scalability as i intend to improve on the app in the future
+
+
+
+Tools Used
+==========
+
+| Tools | Usage |
+| ------- | ------- |
+
+| Riverpod | State Management |
+| GetIt | Dependency injection |
+
+
+App Demo
+========
+Go [live](https://getlinkedbybishopeze.netlify.app/).
