@@ -19,16 +19,12 @@ class PrivacyMobile extends StatelessWidget {
             const HeaderTextMobile(
                 firstText: "Privacy Policy and", secondText: "Terms"),
             const Gap(10),
-            Padding(
-              padding: const EdgeInsets.all(Sizes.p24),
-              child: Text(
-                "Last updated on September 12, 2023",
-                style: AppTextStyles.textStyle(
-                    fontSize: 12.spMin,
-                    color: AppColors.white.withOpacity(0.5)),
-              ),
+            Text(
+              "Last updated on September 12, 2023",
+              style: AppTextStyles.textStyle(
+                  fontSize: 12.spMin, color: AppColors.white.withOpacity(0.5)),
             ),
-            const Gap(20),
+            const Gap(5),
             Padding(
               padding: const EdgeInsets.all(Sizes.p24),
               child: Text(
