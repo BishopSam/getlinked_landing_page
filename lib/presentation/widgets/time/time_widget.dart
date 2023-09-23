@@ -1,20 +1,85 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:getlinked_landing_page/core/constants/breakpoints.dart';
 import 'package:getlinked_landing_page/presentation/widgets/time/time_widget_large.dart';
+import 'package:getlinked_landing_page/presentation/widgets/time/time_widget_mobile.dart';
 
-class TimeWidget extends StatelessWidget {
+class TimeWidget extends StatefulWidget {
   const TimeWidget({super.key});
 
   @override
+  State<TimeWidget> createState() => _TimeWidgetState();
+}
+
+class _TimeWidgetState extends State<TimeWidget> {
+  DateTime dateTime1 = DateTime.now();
+  DateTime dateTime2 = DateTime(2023, 9, 23, 23, 59);
+
+  Timer? countdownTimer;
+  Duration? myDuration;
+  void startTimer() {
+    myDuration = Duration(seconds: dateTime2.difference(dateTime1).inSeconds);
+
+    countdownTimer =
+        Timer.periodic(const Duration(seconds: 1), (_) => setCountDown());
+  }
+
+  // Step 4
+  void stopTimer() {
+    setState(() => countdownTimer?.cancel());
+  }
+
+  // Step 6
+  void setCountDown() {
+    const reduceSecondsBy = 1;
+    setState(() {
+      if (myDuration != null) {
+        final seconds = myDuration!.inSeconds - reduceSecondsBy;
+        if (seconds < 0) {
+          countdownTimer?.cancel();
+        } else {
+          myDuration = Duration(seconds: seconds);
+        }
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    startTimer();
+  }
+
+  @override
+  void dispose() {
+    countdownTimer?.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    String? strDigits(int? n) => n.toString().padLeft(2, '0');
+
+    final minutes = strDigits(myDuration?.inMinutes.remainder(60));
+    final seconds = strDigits(myDuration?.inSeconds.remainder(60));
+    final hours = strDigits(myDuration?.inHours.remainder(24));
+
     final screenWidth = MediaQuery.of(context).size.width;
     log("screen$screenWidth");
     if (screenWidth >= Breakpoint.tablet) {
-      return TimeWidgetLargeScreen(screenWidth: screenWidth);
+      return TimeWidgetLargeScreen(
+          screenWidth: screenWidth,
+          minutes: minutes ?? "",
+          seconds: seconds ?? "",
+          hours: hours ?? "");
     } else {
-      return Container();
+      return TimeWidgetMobile(
+          myDuration: myDuration,
+          minutes: minutes ?? "",
+          seconds: seconds ?? "",
+          hours: hours ?? "");
     }
   }
 }
