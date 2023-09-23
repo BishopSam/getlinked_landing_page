@@ -33,7 +33,6 @@ Tools Used
 
 | Tools | Usage |
 | ------- | ------- |
-
 | Riverpod | State Management |
 | GetIt | Dependency injection |
 
