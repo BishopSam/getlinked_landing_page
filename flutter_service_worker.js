@@ -68,10 +68,10 @@ const RESOURCES = {
 "flutter.js": "f85e6fb278b0fd20c349186fb46ae36d",
 "splash/style.css": "4b03495aa7eca814526dc26b03107a27",
 "splash/splash.js": "123c400b58bea74c1305ca3ac966748d",
-"index.html": "c30ab44ac0d69a89b9670b14a3955947",
-"/": "c30ab44ac0d69a89b9670b14a3955947",
+"index.html": "4db5d01a2ba59b4fc4357bd00f7dee1c",
+"/": "4db5d01a2ba59b4fc4357bd00f7dee1c",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"main.dart.js": "532f53ace4848955e4f6946c82773ae8",
+"main.dart.js": "0a654a68ff7317a0edb4635e2ec72d8f",
 "manifest.json": "e6c8e03b381307a862ff8cdff38a6220"
 };
 
