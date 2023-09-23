@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getlinked_landing_page/core/core.dart';
 import 'package:getlinked_landing_page/presentation/widgets/faqs/faqs_large.dart';
+import 'package:getlinked_landing_page/presentation/widgets/faqs/faqs_mobile.dart';
 
 class FAQsWidget extends StatelessWidget {
   const FAQsWidget({super.key});
@@ -20,6 +21,6 @@ class FAQsWidget extends StatelessWidget {
         ],
       );
     }
-    return Container();
+    return FAQsMobile();
   }
 }

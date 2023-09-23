@@ -34,6 +34,7 @@ class TimeWidgetMobile extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              const Gap(70),
               const GetlinkedTextSectionMobile(),
               const Gap(20),
               CountDownWidget(hours: hours, minutes: minutes, seconds: seconds),

@@ -67,7 +67,7 @@ class ManWithGlassWorldWidgetMobile extends StatelessWidget {
           alignment: Alignment.topRight,
           child: Image.asset(
             PngAsset.metrix,
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
             height: screenHeight(context, percent: 35),
           ),
         ),
@@ -77,7 +77,7 @@ class ManWithGlassWorldWidgetMobile extends StatelessWidget {
             padding: const EdgeInsets.only(right: Sizes.p64),
             child: Image.asset(
               PngAsset.manWithGlasses,
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
               height: screenHeight(context, percent: 35),
             ),
           ),
@@ -98,7 +98,8 @@ class ManWithGlassWorldWidgetMobile extends StatelessWidget {
             ]),
             child: Image.asset(
               PngAsset.electricWorld,
-              height: screenHeight(context, percent: 30),
+              fit: BoxFit.cover,
+              height: screenHeight(context, percent: 35),
             ),
           ),
         ),

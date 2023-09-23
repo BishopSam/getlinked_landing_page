@@ -80,8 +80,8 @@ class OverviewDetailsMobile extends StatelessWidget {
             children: [
               Image.asset(
                 PngAsset.bigIdea,
+                fit: BoxFit.fitWidth,
                 width: screenWidth(context, percent: 40),
-                height: screenHeight(context, percent: 25),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: Sizes.p32),
