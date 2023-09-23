@@ -83,6 +83,11 @@ class _LandingPageState extends State<LandingPage> {
               pageController.animateToPage(1,
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeIn);
+            } else {
+              final route = MaterialPageRoute(
+                builder: (context) => const ContactPage(),
+              );
+              Navigator.push(context, route);
             }
           },
           onRegisterPressed: () {

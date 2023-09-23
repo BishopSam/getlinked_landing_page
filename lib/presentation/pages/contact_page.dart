@@ -5,6 +5,7 @@ import 'package:getlinked_landing_page/core/utils/data_state.dart';
 import 'package:getlinked_landing_page/presentation/view_models/contact_page_vm.dart';
 import 'package:getlinked_landing_page/presentation/widgets/alert_dialogs.dart';
 import 'package:getlinked_landing_page/presentation/widgets/contact_page/contact_page_large.dart';
+import 'package:getlinked_landing_page/presentation/widgets/contact_page/contact_page_mobile.dart';
 
 class ContactPage extends ConsumerStatefulWidget {
   const ContactPage({super.key});
@@ -50,6 +51,13 @@ class _ContactPageState extends ConsumerState<ContactPage> {
           formKey: formKey,
           onPresseed: submitForm);
     }
-    return Container();
+    return Scaffold(
+      body: ContactPageMobile(
+          firstNameController: firstNameController,
+          emailCtrl: emailCtrl,
+          messageCtrl: messageCtrl,
+          formKey: formKey,
+          onPresseed: submitForm),
+    );
   }
 }

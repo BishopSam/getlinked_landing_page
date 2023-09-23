@@ -77,6 +77,7 @@ class ManWithGlassWorldWidgetMobile extends StatelessWidget {
             padding: const EdgeInsets.only(right: Sizes.p64),
             child: Image.asset(
               PngAsset.manWithGlasses,
+              cacheHeight: screenHeight(context, percent: 35).toInt(),
               fit: BoxFit.cover,
               height: screenHeight(context, percent: 35),
             ),

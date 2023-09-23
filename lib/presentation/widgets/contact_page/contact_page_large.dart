@@ -21,8 +21,8 @@ class ContactPageLarge extends StatelessWidget {
   final TextEditingController emailCtrl;
   final TextEditingController messageCtrl;
   final GlobalKey<FormState> formKey;
-
   final VoidCallback onPresseed;
+  
   @override
   Widget build(BuildContext context) {
     return ResponsiveCenter(
