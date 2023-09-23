@@ -24,10 +24,10 @@ class UtilityRepoImpl extends UtilityRepo {
         return DataState.completed(null);
       }
       return DataState.error(((response.data as Map).values as List).first);
-    } on ServerException catch (e) {
-      return DataState.error(e.message);
+    } on ServerException catch (_) {
+      return DataState.error("Something went wrong");
     } catch (e) {
-      return DataState.error(e.toString());
+      return DataState.error("Something went wrong");
     }
   }
 
@@ -45,10 +45,10 @@ class UtilityRepoImpl extends UtilityRepo {
         return DataState.completed(categoryList);
       }
       return DataState.error(((response.data as Map).values as List).first);
-    } on ServerException catch (e) {
-      return DataState.error(e.message);
+    } on ServerException catch (_) {
+      return DataState.error("Something went wrong");
     } catch (e) {
-      return DataState.error(e.toString());
+      return DataState.error("Something went wrong");
     }
   }
 
@@ -62,10 +62,10 @@ class UtilityRepoImpl extends UtilityRepo {
         return DataState.completed(null);
       }
       return DataState.error(((response.data as Map).values as List).first);
-    } on ServerException catch (e) {
-      return DataState.error(e.message);
+    } on ServerException catch (_) {
+      return DataState.error("Something went wrong");
     } catch (e) {
-      return DataState.error(e.toString());
+      return DataState.error("Something went wrong");
     }
   }
 }

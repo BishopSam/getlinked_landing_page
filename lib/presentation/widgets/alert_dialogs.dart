@@ -16,7 +16,7 @@ void showMessage(
           right: screenWidth(context, percent: 2),
           left: screenWidth(context, percent: 50),
           top: screenHeight(context, percent: 2)),
-      borderRadius: const BorderRadius.all(Radius.circular(5)),
+    
       duration: const Duration(milliseconds: 1800),
       flushbarPosition: FlushbarPosition.TOP,
       flushbarStyle: FlushbarStyle.FLOATING,
@@ -43,7 +43,7 @@ void showInfoMessage(BuildContext context, String message) {
         right: screenWidth(context, percent: 2),
         left: screenWidth(context, percent: 50),
         top: screenHeight(context, percent: 2)),
-    borderRadius: const BorderRadius.all(Radius.circular(10)),
+   
     duration: const Duration(milliseconds: 2800),
     flushbarPosition: FlushbarPosition.TOP,
     flushbarStyle: FlushbarStyle.FLOATING,

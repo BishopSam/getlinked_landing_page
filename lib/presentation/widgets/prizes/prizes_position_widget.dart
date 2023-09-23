@@ -139,7 +139,7 @@ class PrizePositionWidgetMobile extends StatelessWidget {
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Gap(isFirst ? 50 : 30),
+            Gap(isFirst ? 60 : 30),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
@@ -150,7 +150,7 @@ class PrizePositionWidgetMobile extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Gap(35),
+                    const Gap(40),
                     Text(
                       position,
                       style: AppTextStyles.textStyle(
