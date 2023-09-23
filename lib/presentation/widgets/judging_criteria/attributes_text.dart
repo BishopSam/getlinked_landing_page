@@ -33,3 +33,30 @@ class AttributesText extends StatelessWidget {
     );
   }
 }
+
+class AttributesTextMobile extends StatelessWidget {
+  const AttributesTextMobile({super.key, required this.attribute, required this.attributeExpl});
+  final String attribute;
+  final String attributeExpl;
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      textAlign: TextAlign.center,
+      text: TextSpan(
+          text: "$attribute:",
+          style: AppTextStyles.textStyle(
+              fontSize: 13.spMin,
+              color: AppColors.pinkColor,
+              fontWeight: FontWeight.bold),
+          children: [
+            TextSpan(
+              text: " $attributeExpl",
+              style: AppTextStyles.textStyle(
+                  fontSize: 13.spMin,
+                  color: AppColors.white,
+                  fontWeight: FontWeight.w400),
+            ),
+          ]),
+    );
+  }
+}
