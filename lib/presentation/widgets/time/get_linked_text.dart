@@ -8,14 +8,10 @@ import 'package:getlinked_landing_page/presentation/widgets/time/countdown_widge
 class GetlinkedTextSection extends StatelessWidget {
   const GetlinkedTextSection({
     Key? key,
-    required this.minutes,
-    required this.seconds,
-    required this.hours,
+    
     required this.onRegisterPressed,
   }) : super(key: key);
-  final String minutes;
-  final String seconds;
-  final String hours;
+
   final VoidCallback onRegisterPressed;
 
   @override
@@ -84,9 +80,7 @@ class GetlinkedTextSection extends StatelessWidget {
         ),
         const Gap(50),
         CountDownWidgetLarge(
-          hours: hours,
-          minutes: minutes,
-          seconds: seconds,
+        
         ),
       ],
     );

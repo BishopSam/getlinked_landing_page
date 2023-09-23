@@ -7,17 +7,8 @@ import 'package:getlinked_landing_page/presentation/widgets/time/man_with_glasse
 import 'countdown_widget.dart';
 
 class TimeWidgetMobile extends StatelessWidget {
-  const TimeWidgetMobile(
-      {super.key,
-      required this.myDuration,
-      required this.minutes,
-      required this.seconds,
-      required this.hours,
-      required this.onRegisterPressed});
-  final Duration? myDuration;
-  final String minutes;
-  final String seconds;
-  final String hours;
+  const TimeWidgetMobile({super.key, required this.onRegisterPressed});
+
   final VoidCallback onRegisterPressed;
 
   @override
@@ -41,7 +32,7 @@ class TimeWidgetMobile extends StatelessWidget {
                 onRegisterPressed: onRegisterPressed,
               ),
               const Gap(20),
-              CountDownWidget(hours: hours, minutes: minutes, seconds: seconds),
+              const CountDownWidget(),
               const Gap(20),
               const ManWithGlassWorldWidgetMobile(),
               Container(

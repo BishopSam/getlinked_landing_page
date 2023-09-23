@@ -40,7 +40,7 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
           filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
           child: SizedBox(
             width: screenWidth,
-            height: 80,
+            height: 70,
           ),
         )),
         bottom: PreferredSize(

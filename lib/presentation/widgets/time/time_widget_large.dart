@@ -9,13 +9,11 @@ import 'package:getlinked_landing_page/presentation/widgets/time/man_with_glasse
 class TimeWidgetLargeScreen extends StatelessWidget {
   const TimeWidgetLargeScreen({
     Key? key,
-    required this.screenWidth, required this.minutes, required this.seconds, required this.hours, required this.onRegisterPressed,
+    required this.screenWidth,  required this.onRegisterPressed,
   }) : super(key: key);
 
   final double screenWidth;
-   final String minutes;
-  final String seconds;
-  final String hours;
+
   final VoidCallback onRegisterPressed;
 
   @override
@@ -78,7 +76,7 @@ class TimeWidgetLargeScreen extends StatelessWidget {
             Positioned(
                 top: screenHeight(context, percent: 10),
                 left: screenWidth * 0.03,
-                child: GetlinkedTextSection(minutes: minutes, seconds: seconds, hours: hours, onRegisterPressed: onRegisterPressed,)),
+                child: GetlinkedTextSection(onRegisterPressed: onRegisterPressed,)),
             Positioned(
                 top: screenHeight(context, percent: 70),
                 left: screenWidth * 0.4,
