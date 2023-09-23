@@ -1,3 +1,4 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -45,7 +46,7 @@ class _TextInputState extends State<TextInputWidget> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: AppTextStyles.textStyle(fontSize: 14.spMin),
+      style: AppTextStyles.textStyle(fontSize: 12.spMin),
       cursorColor: AppColors.white,
       enabled: widget.enabled,
       keyboardType: widget.keyboardType,
@@ -87,7 +88,62 @@ class _TextInputState extends State<TextInputWidget> {
             borderRadius: BorderRadius.circular(4)),
         hintText: widget.hintText,
         errorStyle: const TextStyle(overflow: TextOverflow.visible),
-        hintStyle: AppTextStyles.textStyle(fontSize: 14.spMin),
+        hintStyle: AppTextStyles.textStyle(
+            fontSize: 12.spMin, color: widget.hintColor),
+      ),
+    );
+  }
+}
+
+class AppDropDownButton<T> extends StatefulWidget {
+  const AppDropDownButton({
+    Key? key,
+    required this.items,
+    this.onChanged,
+    required this.value,
+    this.validator,
+    required this.hint,
+  }) : super(key: key);
+  final List<DropdownMenuItem<T?>> items;
+  final T? value;
+  final Function(T?)? onChanged;
+  final String? Function(T?)? validator;
+  final Widget hint;
+  @override
+  State<AppDropDownButton<T>> createState() => _AppDropDownButtonState<T>();
+}
+
+class _AppDropDownButtonState<T> extends State<AppDropDownButton<T>> {
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButtonFormField2<T?>(
+      items: widget.items,
+      value: widget.value,
+      hint: widget.hint,
+      validator: widget.validator,
+      style: AppTextStyles.textStyle(fontSize: 12.spMin),
+      buttonHeight: screenHeight(context, percent: 10),
+      buttonWidth: screenWidth(context, percent: 20),
+      icon: const Icon(
+        Icons.keyboard_arrow_down_rounded,
+        color: AppColors.white,
+      ),
+      onChanged: widget.onChanged,
+      dropdownDecoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(4),
+          color: AppColors.primaryColor,
+          border: Border.all(color: AppColors.white)),
+      decoration: const InputDecoration(
+        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+        enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: AppColors.white),
+            borderRadius: BorderRadius.all(Radius.circular(4.0))),
+        border: OutlineInputBorder(
+            borderSide: BorderSide(color: AppColors.white),
+            borderRadius: BorderRadius.all(Radius.circular(4.0))),
+        focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: AppColors.white),
+            borderRadius: BorderRadius.all(Radius.circular(4.0))),
       ),
     );
   }

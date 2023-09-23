@@ -11,7 +11,6 @@ class PrizesLarge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveCenter(
-      maxContentWidth: screenWidth(context),
       child: Container(
         color: AppColors.darkPrimaryColor,
         child: Stack(

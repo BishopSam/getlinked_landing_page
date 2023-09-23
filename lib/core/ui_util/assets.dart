@@ -38,7 +38,8 @@ class PngAsset {
 class SvgAsset {
   static const moreIcon = 'assets/icons/Vector (3).svg';
   static const curvedLine = 'assets/icons/Vector 4.svg';
-
+  static const dottedLine = 'assets/icons/dotted_line.svg';
+  
   static const x = "assets/icons/x.svg";
   static const facebook = "assets/icons/facebook.svg";
   static const instagram = "assets/icons/mdi_instagram.svg";

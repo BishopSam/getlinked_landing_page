@@ -50,7 +50,6 @@ class TimelineLarge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveCenter(
-      maxContentWidth: screenWidth(context),
       child: Padding(
         padding: const EdgeInsets.all(Sizes.p64),
         child: Stack(

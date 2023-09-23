@@ -10,7 +10,6 @@ class PrivvacyPolicyLarge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveCenter(
-      maxContentWidth: screenWidth(context),
       child: Stack(
         children: [
           Positioned(

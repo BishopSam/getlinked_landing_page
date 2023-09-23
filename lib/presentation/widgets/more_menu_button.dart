@@ -92,7 +92,7 @@ class MoreMenuButton extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                     vertical: Sizes.p8, horizontal: Sizes.p12),
-                child: ButtonWidget(onTap: () {}, text: "Register"),
+                child: ButtonWidget(onTap: onRegisterPressed, text: "Register"),
               ),
             ),
           ];

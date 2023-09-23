@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getlinked_landing_page/core/core.dart';
 import 'package:getlinked_landing_page/presentation/pages/contact_page.dart';
+import 'package:getlinked_landing_page/presentation/pages/register_page.dart';
 import 'package:getlinked_landing_page/presentation/widgets/faqs/faqs_widget.dart';
 import 'package:getlinked_landing_page/presentation/widgets/footer/footer_widget.dart';
 import 'package:getlinked_landing_page/presentation/widgets/home_app_bar.dart';
@@ -24,7 +25,7 @@ class LandingPage extends StatefulWidget {
 
 class _LandingPageState extends State<LandingPage> {
   final AutoScrollController nestedController = AutoScrollController();
-  final PageController pageController = PageController();
+  final PageController pageController = PageController(keepPage: true);
 
   final timeWidgetKey = GlobalKey();
   final overviewWidgetKey = GlobalKey();
@@ -57,7 +58,7 @@ class _LandingPageState extends State<LandingPage> {
             if (screenWidth >= Breakpoint.tablet) {
               pageController
                   .animateToPage(0,
-                      duration: const Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 500),
                       curve: Curves.easeIn)
                   .then((value) =>
                       Future.delayed(const Duration(milliseconds: 200), () {
@@ -69,7 +70,7 @@ class _LandingPageState extends State<LandingPage> {
             if (screenWidth >= Breakpoint.tablet) {
               pageController
                   .animateToPage(0,
-                      duration: const Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 500),
                       curve: Curves.easeIn)
                   .then((value) =>
                       Future.delayed(const Duration(milliseconds: 200), () {
@@ -84,7 +85,13 @@ class _LandingPageState extends State<LandingPage> {
                   curve: Curves.easeIn);
             }
           },
-          onRegisterPressed: () {},
+          onRegisterPressed: () {
+            if (screenWidth >= Breakpoint.tablet) {
+              pageController.animateToPage(2,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeIn);
+            }
+          },
         ),
         body: screenWidth >= Breakpoint.tablet
             ? PageView(
@@ -107,6 +114,7 @@ class _LandingPageState extends State<LandingPage> {
                     ),
                   ),
                   const ContactPage(),
+                  const RegisterPage(),
                 ],
               )
             : SingleChildScrollView(
@@ -129,11 +137,11 @@ class _LandingPageState extends State<LandingPage> {
   void scrollToWidget(int i, {bool? isFAQs}) {
     if (isFAQs != null) {
       nestedController.scrollToIndex(i,
-          duration: const Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 500),
           preferPosition: AutoScrollPosition.end);
     } else {
       nestedController.scrollToIndex(i,
-          duration: const Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 500),
           preferPosition:
               i > 0 ? AutoScrollPosition.begin : AutoScrollPosition.middle);
     }

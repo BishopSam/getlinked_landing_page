@@ -9,7 +9,6 @@ class PartnersLarge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveCenter(
-      maxContentWidth: screenWidth(context),
       child: Column(
         children: [
           const PartnersDetails(),

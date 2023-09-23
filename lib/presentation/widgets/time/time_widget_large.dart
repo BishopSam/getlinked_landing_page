@@ -17,7 +17,6 @@ class TimeWidgetLargeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveCenter(
-        maxContentWidth: screenWidth,
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [

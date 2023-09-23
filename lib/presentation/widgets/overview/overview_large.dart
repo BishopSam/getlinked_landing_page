@@ -10,7 +10,6 @@ class OverviewLargeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveCenter(
-      maxContentWidth: screenwidth,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
