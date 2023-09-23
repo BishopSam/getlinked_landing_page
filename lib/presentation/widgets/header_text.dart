@@ -54,6 +54,7 @@ class HeaderTextMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RichText(
+      textAlign: TextAlign.center,
       text: TextSpan(
         text: "$firstText\n",
         style: AppTextStyles.headerTextStyle(

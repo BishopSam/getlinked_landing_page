@@ -39,8 +39,10 @@ class OverviewDetails extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const HeaderText(firstText: "Introduction to getlinked", secondText: "techHackathon 1.0"),
-               const Gap(20),
+                const HeaderText(
+                    firstText: "Introduction to getlinked",
+                    secondText: "techHackathon 1.0"),
+                const Gap(20),
                 Text(
                   Strings.introText,
                   style: AppTextStyles.textStyle(
@@ -101,7 +103,7 @@ class OverviewDetailsMobile extends StatelessWidget {
           const HeaderTextMobile(
               firstText: "Introduction to getlinked",
               secondText: "techHackathon 1.0"),
-          const Gap(20),
+          const Gap(5),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
@@ -118,4 +120,3 @@ class OverviewDetailsMobile extends StatelessWidget {
     );
   }
 }
-
