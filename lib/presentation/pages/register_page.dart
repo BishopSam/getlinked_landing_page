@@ -37,7 +37,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     getCategories();
   }
 
-  
   @override
   Widget build(BuildContext context) {
     ref.listen(registerPageVmProvider, (previous, next) {
@@ -75,7 +74,12 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
           onCategorySelect: onCategorySelect,
           onGroupSizeSelect: onGroupSizeSelect,
           onIsTermsChanged: onIsTermsAgreed,
-          categories: categories ?? [],
+          categories: categories ??
+              [
+                Category(id: 1, name: "MOBILE"),
+                Category(id: 2, name: "UI/UX"),
+                Category(id: 3, name: "BACKEND"),
+              ],
         ),
       );
     }
@@ -146,5 +150,4 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     isTermsAgreed = selectedIsTermsAgreed ?? false;
     setState(() {});
   }
-
 }

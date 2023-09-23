@@ -44,12 +44,14 @@ class _ContactPageState extends ConsumerState<ContactPage> {
     });
 
     if (screenWidth(context) >= Breakpoint.tablet) {
-      return ContactPageLarge(
-          firstNameController: firstNameController,
-          emailCtrl: emailCtrl,
-          messageCtrl: messageCtrl,
-          formKey: formKey,
-          onPresseed: submitForm);
+      return Scaffold(
+        body: ContactPageLarge(
+            firstNameController: firstNameController,
+            emailCtrl: emailCtrl,
+            messageCtrl: messageCtrl,
+            formKey: formKey,
+            onPresseed: submitForm),
+      );
     }
     return Scaffold(
       body: ContactPageMobile(
