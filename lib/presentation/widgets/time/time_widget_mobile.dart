@@ -27,6 +27,10 @@ class TimeWidgetMobile extends StatelessWidget {
               top: screenHeight(context, percent: 2),
               left: screenWidth(context, percent: 10),
               child: const SmallPurpleFlare()),
+          Positioned(
+              top: screenHeight(context, percent: 25),
+              left: screenWidth(context, percent: 50),
+              child: const SmallPurpleFlare()),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [

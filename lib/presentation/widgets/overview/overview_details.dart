@@ -58,3 +58,64 @@ class OverviewDetails extends StatelessWidget {
     );
   }
 }
+
+/// mobile version of [OverviewDetails]
+class OverviewDetailsMobile extends StatelessWidget {
+  const OverviewDetailsMobile({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: Sizes.p32),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Image.asset(
+                PngAsset.bigIdea,
+                width: screenWidth(context, percent: 40),
+                height: screenHeight(context, percent: 25),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: Sizes.p32),
+                child: Text(
+                  "The Big \nIdea!",
+                  textAlign: TextAlign.center,
+                  style: AppTextStyles.textStyle(
+                      fontSize: 14.spMin, fontWeight: FontWeight.w600),
+                ),
+              )
+            ],
+          ),
+          Image.asset(
+            PngAsset.arrow,
+            width: 19.46,
+            height: 22.82,
+          ),
+          const Gap(10),
+          const HeaderTextMobile(
+              firstText: "Introduction to getlinked",
+              secondText: "techHackathon 1.0"),
+          const Gap(20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Text(
+              Strings.introText,
+              textAlign: TextAlign.center,
+              style: AppTextStyles.textStyle(
+                fontSize: 13.spMin,
+              ),
+            ),
+          ),
+          const Gap(20),
+        ],
+      ),
+    );
+  }
+}
+

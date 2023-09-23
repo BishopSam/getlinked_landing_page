@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getlinked_landing_page/core/constants/breakpoints.dart';
 import 'package:getlinked_landing_page/presentation/widgets/overview/overview_large.dart';
+import 'package:getlinked_landing_page/presentation/widgets/overview/overview_mobile.dart';
 
 class OverviewWidget extends StatelessWidget {
   const OverviewWidget({super.key});
@@ -11,6 +12,6 @@ class OverviewWidget extends StatelessWidget {
     if (screenWidth >= Breakpoint.tablet) {
       return OverviewLargeScreen(screenwidth: screenWidth);
     }
-    return Container();
+    return const OverviewMobile();
   }
 }
