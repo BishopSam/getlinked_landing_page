@@ -50,7 +50,7 @@ class TimelineMobile extends StatelessWidget {
           children: [
             Text(
               "Timeline",
-              style: AppTextStyles.headerTextStyle(fontSize: 32.spMin),
+              style: AppTextStyles.headerTextStyle(fontSize: 20.spMin),
             ),
             const Gap(5),
             Text(

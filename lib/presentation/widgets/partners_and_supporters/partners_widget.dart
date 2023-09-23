@@ -1,8 +1,7 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:getlinked_landing_page/core/constants/breakpoints.dart';
 import 'package:getlinked_landing_page/presentation/widgets/partners_and_supporters/partners_widget_large.dart';
+import 'package:getlinked_landing_page/presentation/widgets/partners_and_supporters/partners_widget_mobile.dart';
 
 class PartnersWidget extends StatelessWidget {
   const PartnersWidget({super.key});
@@ -13,6 +12,6 @@ class PartnersWidget extends StatelessWidget {
     if (screenWidth >= Breakpoint.tablet) {
       return const PartnersLarge();
     }
-    return Container();
+    return const PartnersMobile();
   }
 }

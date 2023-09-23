@@ -227,3 +227,125 @@ class PartnersBox extends StatelessWidget {
     );
   }
 }
+
+class PartnersBoxMobile extends StatelessWidget {
+  const PartnersBoxMobile({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(Sizes.p32),
+      decoration: BoxDecoration(
+        border: Border.all(color: AppColors.accentColor),
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(2),
+      ),
+      child: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  PngAsset.libertyAssured,
+                  height: screenHeight(context, percent: 15),
+                  width: screenWidth(context, percent: 15),
+                ),
+                const Gap(15),
+                Container(
+                  height: screenHeight(context, percent: 10),
+                  width: 4,
+                  color: AppColors.accentColor,
+                ),
+                const Gap(15),
+                Image.asset(
+                  PngAsset.libertyPay,
+                  height: screenHeight(context, percent: 15),
+                  width: screenWidth(context, percent: 15),
+                ),
+                const Gap(15),
+                Container(
+                  height: screenHeight(context, percent: 10),
+                  width: 4,
+                  color: AppColors.accentColor,
+                ),
+                const Gap(15),
+                Image.asset(
+                  PngAsset.winwise,
+                  height: screenHeight(context, percent: 15),
+                  width: screenWidth(context, percent: 15),
+                ),
+              ],
+            ),
+            const Gap(2),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Gap(5),
+                Container(
+                  width: screenWidth(context, percent: 20),
+                  height: 4,
+                  color: AppColors.accentColor,
+                ),
+                const Gap(20),
+                Container(
+                  width: screenWidth(context, percent: 20),
+                  height: 4,
+                  color: AppColors.accentColor,
+                ),
+                const Gap(20),
+                Container(
+                  width: screenWidth(context, percent: 20),
+                  height: 4,
+                  color: AppColors.accentColor,
+                ),
+                const Gap(5),
+              ],
+            ),
+            const Gap(2),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Flexible(
+                    flex: 4,
+                    child: Image.asset(
+                      PngAsset.whisperisms,
+                      height: screenHeight(context, percent: 15),
+                      width: screenWidth(context, percent: 15),
+                    )),
+                const Gap(15),
+                Container(
+                  height: screenHeight(context, percent: 10),
+                  width: 4,
+                  color: AppColors.accentColor,
+                ),
+                const Gap(15),
+                Image.asset(
+                  PngAsset.payBox,
+                  height: screenHeight(context, percent: 15),
+                  width: screenWidth(context, percent: 15),
+                ),
+                const Gap(15),
+                Container(
+                  height: screenHeight(context, percent: 10),
+                  width: 4,
+                  color: AppColors.accentColor,
+                ),
+                const Gap(15),
+                Image.asset(
+                  PngAsset.vizualPlus,
+                  height: screenHeight(context, percent: 15),
+                  width: screenWidth(context, percent: 15),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
